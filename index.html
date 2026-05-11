@@ -483,60 +483,55 @@ HAISAM MOSTAFA
 <script>
 
 function updateSurah(value){
-
 document.getElementById("surahText").innerHTML =
 "سورة " + value;
-
 }
 
 function updateReader(value){
-
 document.getElementById("readerText").innerHTML =
 "القارئ: " + value;
-
 }
 
 function changeBg(value){
-
 document.getElementById("preview").style.backgroundImage =
 "url('" + value + "')";
-
 }
 
 function createReel(){
 
-let surah =
+var surah =
 document.getElementById("surahSelect").value;
 
-let from =
+var fromAyah =
 document.getElementById("fromAyah").value;
 
-let to =
+var toAyah =
 document.getElementById("toAyah").value;
 
+document.getElementById("surahText").innerHTML =
+"سورة " + surah;
+
 document.getElementById("ayahText").innerHTML =
-"سورة " + surah +
-"<br><br>" +
-"الآيات من " + from +
-" إلى " + to;
+"الآيات من " + fromAyah +
+" إلى " + toAyah;
 
-document.getElementById("preview").style.transform =
-"scale(1.03)";
+document.getElementById("preview").style.boxShadow =
+"0 0 60px #38bdf8";
 
-setTimeout(()=>{
+setTimeout(function(){
 
-document.getElementById("preview").style.transform =
-"scale(1)";
+document.getElementById("preview").style.boxShadow =
+"0 0 45px rgba(56,189,248,.25)";
 
-},700);
+},1000);
 
 }
 
 function downloadImage(){
 
-html2canvas(document.querySelector("#preview")).then(canvas=>{
+html2canvas(document.querySelector("#preview")).then(function(canvas){
 
-let link=document.createElement("a");
+var link=document.createElement("a");
 
 link.download="quran-reel.png";
 
@@ -551,7 +546,3 @@ link.click();
 </script>
 
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-
-</body>
-
-</html>
