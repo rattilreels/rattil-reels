@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ورتّل ريلز</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -11,34 +16,44 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:'Cairo',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#020617,#0f172a,#1e1b4b);
+background:linear-gradient(-45deg,#020617,#0f172a,#111827,#1e1b4b);
+background-size:400% 400%;
+animation:bgMove 14s ease infinite;
 color:white;
-direction:rtl;
 overflow-x:hidden;
+min-height:100vh;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 40px;
-background:rgba(0,0,0,.4);
-backdrop-filter:blur(20px);
+padding:25px 40px;
+background:rgba(0,0,0,.25);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(255,255,255,.08);
 position:sticky;
 top:0;
 z-index:999;
 }
 
 .logo{
-font-size:40px;
-font-weight:bold;
-background:linear-gradient(45deg,#8b5cf6,#38bdf8);
+font-size:32px;
+font-weight:900;
+background:linear-gradient(45deg,#38bdf8,#8b5cf6);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+letter-spacing:3px;
 }
 
 .hero{
@@ -47,8 +62,9 @@ padding:80px 20px;
 }
 
 .hero h1{
-font-size:70px;
+font-size:75px;
 line-height:1.5;
+font-weight:900;
 }
 
 .hero span{
@@ -57,148 +73,130 @@ color:#38bdf8;
 
 .hero p{
 margin-top:20px;
-font-size:22px;
-color:#ccc;
+font-size:24px;
+color:#d1d5db;
 }
 
 .container{
-display:grid;
-grid-template-columns:1fr 400px;
+display:flex;
+justify-content:center;
+align-items:flex-start;
 gap:50px;
 padding:40px;
-align-items:center;
+flex-wrap:wrap;
 }
 
-.panel{
+.settings{
+width:420px;
 background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
 padding:30px;
 border-radius:30px;
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.1);
+backdrop-filter:blur(18px);
+box-shadow:0 0 35px rgba(56,189,248,.15);
 }
 
-.panel h2{
+.settings h2{
+font-size:38px;
 margin-bottom:25px;
-font-size:35px;
 }
 
-.select,
-input{
+label{
+display:block;
+margin-top:20px;
+margin-bottom:10px;
+font-size:18px;
+color:#ddd;
+}
+
+select{
 width:100%;
-padding:18px;
-margin-bottom:20px;
+padding:16px;
 border:none;
-border-radius:18px;
+border-radius:16px;
 background:#0f172a;
 color:white;
-font-size:18px;
+font-size:17px;
+outline:none;
 }
 
-.phone{
-width:350px;
-height:650px;
-margin:auto;
-border-radius:40px;
+.btn{
+width:100%;
+padding:18px;
+margin-top:25px;
+border:none;
+border-radius:18px;
+background:linear-gradient(45deg,#38bdf8,#8b5cf6);
+color:white;
+font-size:22px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.preview{
+width:340px;
+height:620px;
+border-radius:35px;
 overflow:hidden;
 position:relative;
-background:black;
-border:3px solid rgba(255,255,255,.1);
-box-shadow:0 0 50px rgba(56,189,248,.3);
-}
-
-.phone img{
-width:100%;
-height:100%;
-object-fit:cover;
-opacity:.55;
+background:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+box-shadow:0 0 40px rgba(56,189,248,.35);
 }
 
 .overlay{
 position:absolute;
 inset:0;
+background:linear-gradient(to top,
+rgba(0,0,0,.9),
+rgba(0,0,0,.2));
 display:flex;
 flex-direction:column;
-justify-content:center;
+justify-content:end;
 align-items:center;
-padding:20px;
+padding:35px;
 text-align:center;
 }
 
-.surah-name{
+.surah{
 background:rgba(0,0,0,.5);
-padding:10px 25px;
-border-radius:30px;
+padding:12px 25px;
+border-radius:25px;
+font-size:28px;
 margin-bottom:20px;
-font-size:25px;
 }
 
-.reciter{
-background:rgba(139,92,246,.5);
+.reader{
+background:rgba(139,92,246,.4);
 padding:10px 20px;
 border-radius:20px;
-margin-bottom:30px;
-font-size:20px;
+font-size:18px;
+margin-bottom:25px;
 }
 
 .ayah{
-font-size:38px;
+font-size:30px;
 line-height:2;
 font-weight:bold;
-text-shadow:0 0 20px black;
-}
-
-.btn{
-width:100%;
-padding:20px;
-border:none;
-border-radius:20px;
-font-size:22px;
-font-weight:bold;
-cursor:pointer;
-background:linear-gradient(45deg,#8b5cf6,#38bdf8);
-color:white;
-margin-top:10px;
-}
-
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-padding:40px;
-}
-
-.card{
-background:rgba(255,255,255,.05);
-padding:25px;
-border-radius:25px;
-}
-
-.card h3{
-margin-bottom:10px;
-color:#38bdf8;
+text-shadow:0 0 15px black;
 }
 
 footer{
 text-align:center;
 padding:40px;
-color:#aaa;
+margin-top:50px;
+color:#94a3b8;
+font-size:16px;
 }
 
-@media(max-width:900px){
-
-.hero h1{
-font-size:45px;
-}
-
-.container{
-grid-template-columns:1fr;
-}
-
-.phone{
-width:100%;
-max-width:350px;
-}
-
+.designer{
+font-size:28px;
+font-weight:900;
+background:linear-gradient(45deg,#38bdf8,#8b5cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+letter-spacing:5px;
 }
 
 </style>
@@ -208,8 +206,15 @@ max-width:350px;
 <body>
 
 <nav>
-<div class="logo">ورتّل ريلز</div>
-<div>ريلز قرآنية احترافية</div>
+
+<div class="logo">
+HAITHAM STUDIO
+</div>
+
+<div>
+ريلز قرآنية احترافية
+</div>
+
 </nav>
 
 <section class="hero">
@@ -226,175 +231,242 @@ max-width:350px;
 
 <section class="container">
 
-<div class="panel">
+<div class="settings">
 
-<h2>إعدادات الريلز</h2>
+<h2>
+إعدادات الريلز ✨
+</h2>
 
-<select class="select" id="surahSelect"></select>
+<label>
+اختر السورة
+</label>
 
-<input type="number" placeholder="من الآية" id="fromAyah">
+<select onchange="updateSurah(this.value)">
 
-<input type="number" placeholder="إلى الآية" id="toAyah">
-
-<select class="select" id="reciterSelect"></select>
-
-<select class="select" id="bgSelect">
-
-<option>جبال</option>
-<option>بحر</option>
-<option>سماء</option>
-<option>مسجد</option>
-<option>صحراء</option>
+<option>الفاتحة</option>
+<option>البقرة</option>
+<option>آل عمران</option>
+<option>النساء</option>
+<option>المائدة</option>
+<option>الأنعام</option>
+<option>الأعراف</option>
+<option>الأنفال</option>
+<option>التوبة</option>
+<option>يونس</option>
+<option>هود</option>
+<option>يوسف</option>
+<option>الرعد</option>
+<option>إبراهيم</option>
+<option>الحجر</option>
+<option>النحل</option>
+<option>الإسراء</option>
+<option>الكهف</option>
+<option>مريم</option>
+<option>طه</option>
+<option>الأنبياء</option>
+<option>الحج</option>
+<option>المؤمنون</option>
+<option>النور</option>
+<option>الفرقان</option>
+<option>الشعراء</option>
+<option>النمل</option>
+<option>القصص</option>
+<option>العنكبوت</option>
+<option>الروم</option>
+<option>لقمان</option>
+<option>السجدة</option>
+<option>الأحزاب</option>
+<option>سبأ</option>
+<option>فاطر</option>
+<option>يس</option>
+<option>الصافات</option>
+<option>ص</option>
+<option>الزمر</option>
+<option>غافر</option>
+<option>فصلت</option>
+<option>الشورى</option>
+<option>الزخرف</option>
+<option>الدخان</option>
+<option>الجاثية</option>
+<option>الأحقاف</option>
+<option>محمد</option>
+<option>الفتح</option>
+<option>الحجرات</option>
+<option>ق</option>
+<option>الذاريات</option>
+<option>الطور</option>
+<option>النجم</option>
+<option>القمر</option>
+<option>الرحمن</option>
+<option>الواقعة</option>
+<option>الحديد</option>
+<option>المجادلة</option>
+<option>الحشر</option>
+<option>الممتحنة</option>
+<option>الصف</option>
+<option>الجمعة</option>
+<option>المنافقون</option>
+<option>التغابن</option>
+<option>الطلاق</option>
+<option>التحريم</option>
+<option>الملك</option>
+<option>القلم</option>
+<option>الحاقة</option>
+<option>المعارج</option>
+<option>نوح</option>
+<option>الجن</option>
+<option>المزمل</option>
+<option>المدثر</option>
+<option>القيامة</option>
+<option>الإنسان</option>
+<option>المرسلات</option>
+<option>النبأ</option>
+<option>النازعات</option>
+<option>عبس</option>
+<option>التكوير</option>
+<option>الإنفطار</option>
+<option>المطففين</option>
+<option>الإنشقاق</option>
+<option>البروج</option>
+<option>الطارق</option>
+<option>الأعلى</option>
+<option>الغاشية</option>
+<option>الفجر</option>
+<option>البلد</option>
+<option>الشمس</option>
+<option>الليل</option>
+<option>الضحى</option>
+<option>الشرح</option>
+<option>التين</option>
+<option>العلق</option>
+<option>القدر</option>
+<option>البينة</option>
+<option>الزلزلة</option>
+<option>العاديات</option>
+<option>القارعة</option>
+<option>التكاثر</option>
+<option>العصر</option>
+<option>الهمزة</option>
+<option>الفيل</option>
+<option>قريش</option>
+<option>الماعون</option>
+<option>الكوثر</option>
+<option>الكافرون</option>
+<option>النصر</option>
+<option>المسد</option>
+<option>الإخلاص</option>
+<option>الفلق</option>
+<option>الناس</option>
 
 </select>
 
-<button class="btn" onclick="generateReel()">
-إنشاء الريلز
+<label>
+اسم القارئ
+</label>
+
+<select onchange="updateReader(this.value)">
+
+<option>مشاري العفاسي</option>
+<option>ماهر المعيقلي</option>
+<option>ياسر الدوسري</option>
+<option>عبد الباسط عبد الصمد</option>
+<option>أحمد العجمي</option>
+<option>سعد الغامدي</option>
+<option>فارس عباد</option>
+<option>ناصر القطامي</option>
+<option>محمد صديق المنشاوي</option>
+<option>محمود خليل الحصري</option>
+<option>عبد الرحمن السديس</option>
+<option>سعود الشريم</option>
+<option>إدريس أبكر</option>
+<option>هاني الرفاعي</option>
+<option>خالد الجليل</option>
+<option>صلاح البدير</option>
+<option>بندر بليلة</option>
+<option>أبو بكر الشاطري</option>
+<option>محمد جبريل</option>
+<option>أحمد بن علي العجمي</option>
+<option>علي جابر</option>
+<option>عبد الله بصفر</option>
+<option>عبد الولي الأركاني</option>
+<option>توفيق الصايغ</option>
+<option>وليد الدليمي</option>
+<option>محمد أيوب</option>
+<option>محمد اللحيدان</option>
+<option>أكرم العلاقي</option>
+<option>حاتم فريد الواعر</option>
+<option>جمال شحاتة</option>
+<option>عبد الله الموسى</option>
+<option>رشيد بلعالية</option>
+<option>محمد المحيسني</option>
+<option>عبد الله خياط</option>
+<option>محمد الطبلاوي</option>
+<option>مصطفى إسماعيل</option>
+<option>محمود علي البنا</option>
+<option>عبد الفتاح الطاروطي</option>
+<option>يحيى حوا</option>
+<option>أحمد النفيس</option>
+
+</select>
+
+<button class="btn">
+إنشاء الريلز 🎬
 </button>
 
 </div>
 
-<div class="phone">
-
-<img id="bgImage" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+<div class="preview">
 
 <div class="overlay">
 
-<div class="surah-name" id="previewSurah">
+<div class="surah" id="surahText">
 سورة الفاتحة
 </div>
 
-<div class="reciter" id="previewReciter">
+<div class="reader" id="readerText">
 القارئ: مشاري العفاسي
 </div>
 
-<div class="ayah" id="previewAyah">
-بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+<div class="ayah">
+بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
 </div>
 
 </div>
 
-</div>
-
-</section>
-
-<section class="features">
-
-<div class="card">
-<h3>كل سور القرآن</h3>
-<p>اختر أي سورة بسهولة</p>
-</div>
-
-<div class="card">
-<h3>أشهر القراء</h3>
-<p>أكثر من 40 قارئ</p>
-</div>
-
-<div class="card">
-<h3>خلفيات احترافية</h3>
-<p>خلفيات متحركة وجمالية</p>
 </div>
 
 </section>
 
 <footer>
-© 2026 ورتّل ريلز
+
+Designed & Developed By
+
+<div class="designer">
+HAISAM MOSTAFA
+</div>
+
 </footer>
 
 <script>
 
-const surahs = [
-"الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس",
-"هود","يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه",
-"الأنبياء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم",
-"لقمان","السجدة","الأحزاب","سبأ","فاطر","يس","الصافات","ص","الزمر","غافر",
-"فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق",
-"الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة",
-"الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج",
-"نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس",
-"التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد",
-"الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات",
-"القارعة","التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر",
-"المسد","الإخلاص","الفلق","الناس"
-];
+function updateSurah(value){
 
-const reciters = [
-"مشاري العفاسي",
-"عبد الرحمن السديس",
-"ماهر المعيقلي",
-"ياسر الدوسري",
-"سعد الغامدي",
-"ناصر القطامي",
-"فارس عباد",
-"أحمد العجمي",
-"صلاح البدير",
-"إدريس أبكر",
-"هزاع البلوشي",
-"محمد اللحيدان",
-"خالد الجليل",
-"وليد الشمسان",
-"أبو بكر الشاطري"
-];
-
-const surahSelect = document.getElementById("surahSelect");
-const reciterSelect = document.getElementById("reciterSelect");
-
-surahs.forEach(surah=>{
-const option=document.createElement("option");
-option.textContent=surah;
-surahSelect.appendChild(option);
-});
-
-reciters.forEach(reciter=>{
-const option=document.createElement("option");
-option.textContent=reciter;
-reciterSelect.appendChild(option);
-});
-
-function generateReel(){
-
-const surah = surahSelect.value;
-const reciter = reciterSelect.value;
-
-document.getElementById("previewSurah").innerText="سورة "+surah;
-
-document.getElementById("previewReciter").innerText=
-"القارئ: "+reciter;
-
-const from =
-document.getElementById("fromAyah").value;
-
-const to =
-document.getElementById("toAyah").value;
-
-if(from && to){
-
-document.getElementById("previewAyah").innerText=
-"الآيات من "+from+" إلى "+to;
+document.getElementById("surahText")
+.innerHTML =
+"سورة " + value;
 
 }
 
-const bg = document.getElementById("bgSelect").value;
+function updateReader(value){
 
-const images = {
-
-"جبال":"https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-
-"بحر":"https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
-
-"سماء":"https://images.unsplash.com/photo-1499346030926-9a72daac6c63",
-
-"مسجد":"https://images.unsplash.com/photo-1542816417-0983670d3f75",
-
-"صحراء":"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
-
-};
-
-document.getElementById("bgImage").src = images[bg];
+document.getElementById("readerText")
+.innerHTML =
+"القارئ: " + value;
 
 }
 
 </script>
 
 </body>
-  </html>
+
+</html>
