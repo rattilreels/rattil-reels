@@ -41,7 +41,6 @@ align-items:center;
 padding:25px 40px;
 background:rgba(0,0,0,.25);
 backdrop-filter:blur(15px);
-border-bottom:1px solid rgba(255,255,255,.08);
 position:sticky;
 top:0;
 z-index:999;
@@ -53,18 +52,16 @@ font-weight:900;
 background:linear-gradient(45deg,#38bdf8,#8b5cf6);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-letter-spacing:3px;
 }
 
 .hero{
 text-align:center;
-padding:80px 20px;
+padding:70px 20px;
 }
 
 .hero h1{
-font-size:75px;
+font-size:70px;
 line-height:1.5;
-font-weight:900;
 }
 
 .hero span{
@@ -72,44 +69,42 @@ color:#38bdf8;
 }
 
 .hero p{
-margin-top:20px;
 font-size:24px;
-color:#d1d5db;
+margin-top:15px;
+color:#cbd5e1;
 }
 
 .container{
 display:flex;
 justify-content:center;
-align-items:flex-start;
 gap:50px;
 padding:40px;
 flex-wrap:wrap;
 }
 
 .settings{
-width:420px;
+width:430px;
 background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
 padding:30px;
 border-radius:30px;
 backdrop-filter:blur(18px);
-box-shadow:0 0 35px rgba(56,189,248,.15);
+border:1px solid rgba(255,255,255,.08);
 }
 
 .settings h2{
-font-size:38px;
-margin-bottom:25px;
+font-size:35px;
+margin-bottom:20px;
 }
 
 label{
 display:block;
-margin-top:20px;
+margin-top:18px;
 margin-bottom:10px;
 font-size:18px;
-color:#ddd;
 }
 
-select{
+select,
+input{
 width:100%;
 padding:16px;
 border:none;
@@ -131,6 +126,11 @@ color:white;
 font-size:22px;
 font-weight:bold;
 cursor:pointer;
+transition:.4s;
+}
+
+.btn:hover{
+transform:scale(1.03);
 }
 
 .preview{
@@ -173,11 +173,11 @@ background:rgba(139,92,246,.4);
 padding:10px 20px;
 border-radius:20px;
 font-size:18px;
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
 .ayah{
-font-size:30px;
+font-size:28px;
 line-height:2;
 font-weight:bold;
 text-shadow:0 0 15px black;
@@ -187,8 +187,6 @@ footer{
 text-align:center;
 padding:40px;
 margin-top:50px;
-color:#94a3b8;
-font-size:16px;
 }
 
 .designer{
@@ -197,7 +195,7 @@ font-weight:900;
 background:linear-gradient(45deg,#38bdf8,#8b5cf6);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-letter-spacing:5px;
+letter-spacing:4px;
 }
 
 </style>
@@ -225,7 +223,7 @@ HAITHAM STUDIO
 </h1>
 
 <p>
-اختر السورة والقارئ والخلفية
+اختر السورة والآيات والقارئ والخلفية
 </p>
 
 </section>
@@ -362,6 +360,18 @@ HAITHAM STUDIO
 </select>
 
 <label>
+من الآية
+</label>
+
+<input type="number" placeholder="مثلا 1">
+
+<label>
+إلى الآية
+</label>
+
+<input type="number" placeholder="مثلا 7">
+
+<label>
 اسم القارئ
 </label>
 
@@ -411,7 +421,7 @@ HAITHAM STUDIO
 </select>
 
 <label>
-اختر الخلفية
+الخلفية
 </label>
 
 <select onchange="changeBg(this.value)">
