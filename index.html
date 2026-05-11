@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ورتّل ريلز</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+
+background:
+linear-gradient(
+135deg,
+#030712,
+#111827,
+#1e1b4b
+);
+
+color:white;
+
+direction:rtl;
+
+overflow-x:hidden;
+
+}
+
+nav{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px 40px;
+
+background:rgba(0,0,0,.4);
+
+backdrop-filter:blur(15px);
+
+border-bottom:
+1px solid rgba(255,255,255,.08);
+
+}
+
+.logo{
+
+font-size:35px;
+
+font-weight:bold;
+
+background:
+linear-gradient(
+45deg,
+#8b5cf6,
+#38bdf8
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+.hero{
+
+text-align:center;
+
+padding:70px 20px;
+
+}
+
+.hero h1{
+
+font-size:65px;
+
+line-height:1.5;
+
+}
+
+.hero span{
+
+color:#38bdf8;
+
+}
+
+.hero p{
+
+color:#bbb;
+
+font-size:22px;
+
+margin-top:20px;
+
+}
+
+.container{
+
+display:grid;
+
+grid-template-columns:
+1fr 1fr;
+
+gap:40px;
+
+padding:40px;
+
+align-items:center;
+
+}
+
+.preview{
+
+width:350px;
+
+height:650px;
+
+margin:auto;
+
+border-radius:40px;
+
+overflow:hidden;
+
+position:relative;
+
+background:black;
+
+border:
+2px solid rgba(255,255,255,.1);
+
+box-shadow:
+0 0 40px rgba(56,189,248,.2);
+
+}
+
+.preview img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+opacity:.55;
+
+}
+
+.overlay{
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+transparent,
+rgba(0,0,0,.7)
+);
+
+}
+
+.surah{
+
+position:absolute;
+
+top:30px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+background:
+rgba(0,0,0,.5);
+
+padding:10px 25px;
+
+border-radius:30px;
+
+font-size:18px;
+
+}
+
+.reader{
+
+position:absolute;
+
+top:90px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+background:
+rgba(139,92,246,.25);
+
+padding:10px 20px;
+
+border-radius:30px;
+
+font-size:15px;
+
+}
+
+.ayah{
+
+position:absolute;
+
+bottom:80px;
+
+padding:25px;
+
+font-size:34px;
+
+font-weight:bold;
+
+line-height:2;
+
+text-align:center;
+
+width:100%;
+
+text-shadow:
+0 0 15px black;
+
+}
+
+.panel{
+
+background:
+rgba(255,255,255,.04);
+
+padding:30px;
+
+border-radius:30px;
+
+border:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+}
+
+.panel h2{
+
+margin-bottom:25px;
+
+font-size:30px;
+
+}
+
+.field{
+
+margin-bottom:25px;
+
+}
+
+label{
+
+display:block;
+
+margin-bottom:10px;
+
+color:#ccc;
+
+font-size:18px;
+
+}
+
+select,input{
+
+width:100%;
+
+padding:18px;
+
+background:#0f172a;
+
+border:none;
+
+border-radius:18px;
+
+color:white;
+
+font-size:18px;
+
+outline:none;
+
+}
+
+.row{
+
+display:grid;
+
+grid-template-columns:
+1fr 1fr;
+
+gap:20px;
+
+}
+
+.gallery{
+
+display:flex;
+
+gap:15px;
+
+overflow:auto;
+
+margin-top:15px;
+
+}
+
+.gallery img{
+
+width:90px;
+
+height:140px;
+
+object-fit:cover;
+
+border-radius:18px;
+
+border:3px solid transparent;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
+
+border-color:#38bdf8;
+
+}
+
+.btn{
+
+width:100%;
+
+padding:22px;
+
+border:none;
+
+border-radius:20px;
+
+font-size:22px;
+
+font-weight:bold;
+
+background:
+linear-gradient(
+45deg,
+#8b5cf6,
+#38bdf8
+);
+
+color:white;
+
+cursor:pointer;
+
+margin-top:20px;
+
+box-shadow:
+0 0 25px rgba(139,92,246,.4);
+
+}
+
+footer{
+
+text-align:center;
+
+padding:50px;
+
+color:#888;
+
+}
+
+@media(max-width:900px){
+
+.container{
+
+grid-template-columns:1fr;
+
+}
+
+.hero h1{
+
+font-size:45px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+ورتّل ريلز
+</div>
+
+<div>
+ريلز قرآنية احترافية
+</div>
+
+</nav>
+
+<section class="hero">
+
+<h1>
+
+أنشئ
+<span>
+ريلز قرآني
+</span>
+
+احترافي خلال ثوانٍ
+
+</h1>
+
+<p>
+
+اختر السورة والقارئ والخلفية وشاهد المعاينة مباشرة
+
+</p>
+
+</section>
+
+<section class="container">
+
+<div class="preview">
+
+<img id="bg"
+src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+
+<div class="overlay"></div>
+
+<div class="surah">
+سورة الرحمن
+</div>
+
+<div class="reader">
+القارئ: مشاري العفاسي
+</div>
+
+<div class="ayah">
+
+فَبِأَيِّ آلَاءِ
+رَبِّكُمَا تُكَذِّبَانِ
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>
+إعدادات الريلز
+</h2>
+
+<div class="field">
+
+<label>
+اختر السورة
+</label>
+
+<select>
+
+<option>الفاتحة</option>
+<option>البقرة</option>
+<option>آل عمران</option>
+<option>النساء</option>
+<option>المائدة</option>
+<option>الأنعام</option>
+<option>الأعراف</option>
+<option>الرحمن</option>
+<option>يس</option>
+<option>الملك</option>
+
+</select>
+
+</div>
+
+<div class="row">
+
+<div class="field">
+
+<label>
+من آية
+</label>
+
+<input type="number" value="1">
+
+</div>
+
+<div class="field">
+
+<label>
+إلى آية
+</label>
+
+<input type="number" value="7">
+
+</div>
+
+</div>
+
+<div class="field">
+
+<label>
+اختر القارئ
+</label>
+
+<select>
+
+<option>مشاري العفاسي</option>
+<option>ماهر المعيقلي</option>
+<option>عبدالباسط عبدالصمد</option>
+<option>ياسر الدوسري</option>
+<option>سعد الغامدي</option>
+<option>ناصر القطامي</option>
+<option>سعود الشريم</option>
+<option>عبدالرحمن السديس</option>
+<option>فارس عباد</option>
+<option>إدريس أبكر</option>
+<option>أحمد العجمي</option>
+<option>صلاح البدير</option>
+<option>هزاع البلوشي</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label>
+اختر الخلفية
+</label>
+
+<div class="gallery">
+
+<img onclick="changeBg(this)"
+src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+
+<img onclick="changeBg(this)"
+src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+
+<img onclick="changeBg(this)"
+src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e">
+
+<img onclick="changeBg(this)"
+src="https://images.unsplash.com/photo-1518837695005-2083093ee35b">
+
+</div>
+
+</div>
+
+<button class="btn">
+
+إنشاء الريلز
+
+</button>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 ورتّل ريلز
+
+</footer>
+
+<script>
+
+function changeBg(img){
+
+document.getElementById("bg").src = img.src;
+
+}
+
+</script>
+
+</body>
+
+</html>
