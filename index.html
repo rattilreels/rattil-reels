@@ -143,6 +143,7 @@ background:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=8
 background-size:cover;
 background-position:center;
 box-shadow:0 0 40px rgba(56,189,248,.35);
+transition:1s;
 }
 
 .overlay{
@@ -220,11 +221,11 @@ HAITHAM STUDIO
 <section class="hero">
 
 <h1>
-أنشئ <span>ريلز قرآني</span> احترافي خلال ثوانٍ
+أنشئ <span>ريلز قرآني</span> احترافي
 </h1>
 
 <p>
-اختر السورة والقارئ والخلفية وشاهد المعاينة مباشرة
+اختر السورة والقارئ والخلفية
 </p>
 
 </section>
@@ -409,13 +410,42 @@ HAITHAM STUDIO
 
 </select>
 
+<label>
+اختر الخلفية
+</label>
+
+<select onchange="changeBg(this.value)">
+
+<option value="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">جبال</option>
+<option value="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200&auto=format&fit=crop">بحر</option>
+<option value="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop">سماء</option>
+<option value="https://images.unsplash.com/photo-1564769625905-50e93615e769?q=80&w=1200&auto=format&fit=crop">مسجد</option>
+<option value="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200&auto=format&fit=crop">غروب</option>
+<option value="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">طبيعة</option>
+<option value="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop">أمواج</option>
+<option value="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop">غابة</option>
+<option value="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop">ثلوج</option>
+<option value="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop">سحب</option>
+<option value="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=1200&auto=format&fit=crop">بحيرة</option>
+<option value="https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=1200&auto=format&fit=crop">طريق</option>
+<option value="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=1200&auto=format&fit=crop">زهور</option>
+<option value="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1200&auto=format&fit=crop">محيط</option>
+<option value="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1200&auto=format&fit=crop">مدينة</option>
+<option value="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">صحراء</option>
+<option value="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop">قمر</option>
+<option value="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop">مطر</option>
+<option value="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?q=80&w=1200&auto=format&fit=crop">أشجار</option>
+<option value="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&auto=format&fit=crop">طبيعة خضراء</option>
+
+</select>
+
 <button class="btn">
 إنشاء الريلز 🎬
 </button>
 
 </div>
 
-<div class="preview">
+<div class="preview" id="preview">
 
 <div class="overlay">
 
@@ -450,19 +480,18 @@ HAISAM MOSTAFA
 <script>
 
 function updateSurah(value){
-
-document.getElementById("surahText")
-.innerHTML =
+document.getElementById("surahText").innerHTML =
 "سورة " + value;
-
 }
 
 function updateReader(value){
-
-document.getElementById("readerText")
-.innerHTML =
+document.getElementById("readerText").innerHTML =
 "القارئ: " + value;
+}
 
+function changeBg(value){
+document.getElementById("preview").style.backgroundImage =
+"url('" + value + "')";
 }
 
 </script>
