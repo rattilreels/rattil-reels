@@ -1,12 +1,15 @@
+<!-- =========================
+     قرآن ريلز | النسخة الكاملة
+========================= -->
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ورتّل ريلز | HAITHAM STUDIO</title>
+<title>قرآن ريلز</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
@@ -20,274 +23,279 @@ font-family:'Cairo',sans-serif;
 }
 
 body{
-background:#020617;
+background:#050816;
 color:white;
 overflow-x:hidden;
-min-height:100vh;
 }
 
-body::before{
-content:'';
+header{
 position:fixed;
+top:0;
 width:100%;
-height:100%;
-background:
-radial-gradient(circle at top,#1e3a8a55,transparent 40%),
-radial-gradient(circle at bottom,#7c3aed33,transparent 40%);
-animation:bgMove 8s infinite alternate;
-z-index:-1;
-}
-
-@keyframes bgMove{
-0%{transform:scale(1);}
-100%{transform:scale(1.1);}
-}
-
-nav{
+z-index:999;
+padding:18px;
+background:rgba(0,0,0,.55);
+backdrop-filter:blur(10px);
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:22px 40px;
-background:rgba(0,0,0,.35);
-backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(255,255,255,.08);
-position:sticky;
-top:0;
-z-index:999;
+border-bottom:1px solid rgba(255,255,255,.07);
 }
 
 .logo{
-font-size:34px;
+font-size:30px;
 font-weight:900;
-background:linear-gradient(45deg,#38bdf8,#8b5cf6);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.hero{
-text-align:center;
-padding:60px 20px;
-}
-
-.hero h1{
-font-size:65px;
-margin-bottom:10px;
-}
-
-.hero span{
-color:#38bdf8;
-}
-
-.hero p{
-font-size:22px;
-color:#cbd5e1;
+color:#f6c84c;
 }
 
 .container{
-display:flex;
-justify-content:center;
-gap:45px;
-padding:20px 30px 60px;
-flex-wrap:wrap;
+padding:120px 20px 30px;
+display:grid;
+grid-template-columns:420px 1fr;
+gap:25px;
 }
 
-.settings{
-width:470px;
-background:rgba(255,255,255,.05);
-padding:30px;
-border-radius:30px;
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,.08);
-box-shadow:0 0 25px rgba(56,189,248,.08);
-}
-
-.settings h2{
-font-size:34px;
-margin-bottom:15px;
-}
-
-label{
-display:block;
-margin-top:18px;
-margin-bottom:8px;
-font-size:18px;
-}
-
-select,input{
+.phone{
 width:100%;
-padding:16px;
-border:none;
-border-radius:16px;
-background:#0f172a;
-color:white;
-font-size:17px;
-outline:none;
-}
-
-.btn{
-width:100%;
-padding:18px;
-margin-top:28px;
-border:none;
-border-radius:18px;
-background:linear-gradient(45deg,#38bdf8,#8b5cf6);
-color:white;
-font-size:22px;
-font-weight:bold;
-cursor:pointer;
-transition:.4s;
-}
-
-.btn:hover{
-transform:scale(1.03);
-box-shadow:0 0 30px rgba(56,189,248,.5);
-}
-
-.preview{
-width:360px;
-height:640px;
+height:760px;
+background:black;
 border-radius:35px;
 overflow:hidden;
-position:relative;
-background-size:cover;
-background-position:center;
-box-shadow:0 0 45px rgba(56,189,248,.25);
-animation:float 4s infinite ease-in-out;
+position:sticky;
+top:110px;
+box-shadow:0 0 35px rgba(0,0,0,.7);
 }
 
-@keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0px);}
+.phone video,
+.phone img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 .overlay{
 position:absolute;
 inset:0;
-background:linear-gradient(to top,
-rgba(0,0,0,.92),
-rgba(0,0,0,.15));
-display:flex;
-flex-direction:column;
-justify-content:end;
-align-items:center;
-padding:35px;
+background:linear-gradient(to top,rgba(0,0,0,.8),transparent);
+z-index:2;
+}
+
+.content{
+position:absolute;
+bottom:120px;
+width:100%;
+padding:20px;
+z-index:5;
 text-align:center;
 }
 
 .surah{
+display:inline-block;
+padding:10px 20px;
+border-radius:999px;
 background:rgba(0,0,0,.5);
-padding:12px 24px;
-border-radius:25px;
-font-size:28px;
-margin-bottom:18px;
-backdrop-filter:blur(10px);
-}
-
-.reader{
-background:rgba(139,92,246,.4);
-padding:10px 22px;
-border-radius:20px;
-font-size:18px;
-margin-bottom:22px;
+margin-bottom:15px;
+font-weight:bold;
 }
 
 .ayah{
-font-size:31px;
-line-height:2;
+font-size:33px;
 font-weight:900;
+line-height:1.9;
 text-shadow:0 0 15px black;
-animation:fadeIn 2s infinite alternate;
 }
 
-@keyframes fadeIn{
-0%{opacity:.7;}
-100%{opacity:1;}
+.reader{
+margin-top:15px;
+font-size:20px;
+color:#f6c84c;
 }
 
-footer{
-text-align:center;
-padding:45px;
+.controls{
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:10px;
+z-index:10;
 }
 
-.designer{
-font-size:30px;
+.controls button{
+padding:13px 20px;
+border:none;
+border-radius:15px;
+font-weight:bold;
+cursor:pointer;
+background:#f6c84c;
+}
+
+.panel{
+background:#0e1223;
+border-radius:25px;
+padding:25px;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.section{
+margin-bottom:30px;
+}
+
+.section h2{
+margin-bottom:15px;
+font-size:24px;
+}
+
+select,
+input{
+width:100%;
+padding:16px;
+background:#14192b;
+border:none;
+border-radius:15px;
+color:white;
+font-size:18px;
+margin-bottom:15px;
+}
+
+.range{
+display:flex;
+gap:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+gap:15px;
+}
+
+.bg{
+height:220px;
+overflow:hidden;
+border-radius:20px;
+cursor:pointer;
+border:3px solid transparent;
+}
+
+.bg img,
+.bg video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.bg:hover{
+border-color:#f6c84c;
+}
+
+.create{
+width:100%;
+padding:20px;
+border:none;
+border-radius:20px;
+background:#f6c84c;
+font-size:26px;
 font-weight:900;
-letter-spacing:5px;
-background:linear-gradient(45deg,#38bdf8,#8b5cf6);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+cursor:pointer;
 }
 
 .download{
-margin-top:18px;
-background:#16a34a;
-}
-
-.download:hover{
-box-shadow:0 0 30px rgba(34,197,94,.4);
+margin-top:20px;
+width:100%;
+padding:18px;
+border:none;
+border-radius:20px;
+background:#fff;
+font-size:22px;
+font-weight:900;
+cursor:pointer;
 }
 
 @media(max-width:900px){
 
-.hero h1{
-font-size:45px;
+.container{
+grid-template-columns:1fr;
 }
 
-.settings{
-width:100%;
-}
-
-.preview{
-width:320px;
-height:580px;
+.phone{
+position:relative;
+top:0;
+height:700px;
 }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
-<nav>
+<header>
+<div class="logo">قرآن ريلز</div>
+</header>
 
-<div class="logo">
-HAITHAM STUDIO
+<div class="container">
+
+<!-- الموبايل -->
+
+<div class="phone">
+
+<video id="videoBg" autoplay muted loop playsinline>
+<source src="https://cdn.coverr.co/videos/coverr-sunset-over-the-mountains-1560084499578?download=1080p">
+</video>
+
+<img id="imageBg" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop" style="display:none">
+
+<div class="overlay"></div>
+
+<div class="content">
+
+<div class="surah" id="surahName">
+سورة الفاتحة
 </div>
 
-<div>
-ريلز قرآنية احترافية
+<div class="ayah" id="ayahText">
+بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
 </div>
 
-</nav>
+<div class="reader" id="readerName">
+القارئ : مشاري راشد العفاسي
+</div>
 
-<section class="hero">
+</div>
 
-<h1>
-أنشئ <span>ريلز قرآني</span> احترافي
-</h1>
+<div class="controls">
 
-<p>
-اختر السورة والقارئ والخلفية والآيات وشاهد المعاينة مباشرة
-</p>
+<button onclick="playAudio()">
+تشغيل
+</button>
 
-</section>
+<button onclick="pauseAudio()">
+إيقاف
+</button>
 
-<section class="container">
+</div>
 
-<div class="settings">
+<audio id="audio">
 
-<h2>
-إعدادات الريلز ✨
-</h2>
+<source src="https://server8.mp3quran.net/afs/001.mp3">
 
-<label>
-اختر السورة
-</label>
+</audio>
 
-<select onchange="updateSurah(this.value)" id="surahSelect">
+</div>
+
+<!-- الإعدادات -->
+
+<div class="panel">
+
+<!-- السور -->
+
+<div class="section">
+
+<h2>اختر السورة</h2>
+
+<select id="surahSelect" onchange="changeSurah()">
 
 <option>الفاتحة</option>
 <option>البقرة</option>
@@ -370,9 +378,9 @@ HAITHAM STUDIO
 <option>النازعات</option>
 <option>عبس</option>
 <option>التكوير</option>
-<option>الإنفطار</option>
+<option>الانفطار</option>
 <option>المطففين</option>
-<option>الإنشقاق</option>
+<option>الانشقاق</option>
 <option>البروج</option>
 <option>الطارق</option>
 <option>الأعلى</option>
@@ -406,216 +414,213 @@ HAITHAM STUDIO
 
 </select>
 
-<label>
-من الآية
-</label>
+</div>
 
-<input type="number" id="fromAyah" value="1">
+<!-- الآيات -->
 
-<label>
-إلى الآية
-</label>
+<div class="section">
 
-<input type="number" id="toAyah" value="7">
+<h2>من الآية إلى الآية</h2>
 
-<label>
-اسم القارئ
-</label>
+<div class="range">
 
-<select onchange="updateReader(this.value)">
+<input type="number" id="fromAyah" placeholder="من">
 
-<option>مشاري العفاسي</option>
+<input type="number" id="toAyah" placeholder="إلى">
+
+</div>
+
+</div>
+
+<!-- القراء -->
+
+<div class="section">
+
+<h2>اختر القارئ</h2>
+
+<select id="readerSelect" onchange="changeReader()">
+
+<option>مشاري راشد العفاسي</option>
+<option>عبد الباسط عبد الصمد</option>
 <option>ماهر المعيقلي</option>
 <option>ياسر الدوسري</option>
-<option>عبد الباسط عبد الصمد</option>
-<option>أحمد العجمي</option>
-<option>سعد الغامدي</option>
 <option>فارس عباد</option>
+<option>هزاع البلوشي</option>
+<option>سعد الغامدي</option>
 <option>ناصر القطامي</option>
-<option>محمد صديق المنشاوي</option>
-<option>محمود خليل الحصري</option>
+<option>إدريس أبكر</option>
+<option>محمد اللحيدان</option>
+<option>أبو بكر الشاطري</option>
+<option>خالد الجليل</option>
 <option>عبد الرحمن السديس</option>
 <option>سعود الشريم</option>
-<option>إدريس أبكر</option>
-<option>هاني الرفاعي</option>
-<option>خالد الجليل</option>
 <option>صلاح البدير</option>
-<option>بندر بليلة</option>
-<option>أبو بكر الشاطري</option>
-<option>محمد جبريل</option>
-<option>محمد اللحيدان</option>
-<option>عبد الله بصفر</option>
-<option>محمد أيوب</option>
+<option>أحمد العجمي</option>
 <option>علي جابر</option>
-<option>أحمد النفيس</option>
+<option>محمد صديق المنشاوي</option>
+<option>الحصري</option>
+<option>عبد الله المطرود</option>
 <option>عبد الولي الأركاني</option>
+<option>سهل ياسين</option>
+<option>خالد المهنا</option>
+<option>بندر بليلة</option>
+<option>وليد الشمسان</option>
+<option>حسين آل الشيخ</option>
+<option>صلاح بو خاطر</option>
+<option>عبد الله بصفر</option>
+<option>عمر القزابري</option>
 <option>توفيق الصايغ</option>
-<option>حاتم فريد</option>
-<option>وليد الدليمي</option>
-<option>عبد الله خياط</option>
-<option>محمد الطبلاوي</option>
-<option>مصطفى إسماعيل</option>
+<option>محمد أيوب</option>
+<option>الطبلاوي</option>
+<option>محمود خليل الحصري</option>
+<option>عبد الرشيد صوفي</option>
+<option>إبراهيم الأخضر</option>
+<option>محمد جبريل</option>
 <option>محمود علي البنا</option>
-<option>عبد الفتاح الطاروطي</option>
-<option>أكرم العلاقي</option>
-<option>محمد المحيسني</option>
-<option>رشيد بلعالية</option>
-<option>جمال شحاتة</option>
-<option>يحيى حوا</option>
-<option>عبد الله الموسى</option>
-<option>أحمد بن علي العجمي</option>
+<option>مصطفى إسماعيل</option>
+<option>طارق محمد</option>
+<option>أحمد النفيس</option>
 
 </select>
 
-<label>
-الخلفية المتحركة
-</label>
+</div>
 
-<select onchange="changeBg(this.value)">
+<!-- الخلفيات -->
 
-<option value="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">جبال</option>
+<div class="section">
 
-<option value="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200&auto=format&fit=crop">بحر</option>
+<h2>الخلفيات والصور المتحركة</h2>
 
-<option value="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop">سماء</option>
+<div class="grid">
 
-<option value="https://images.unsplash.com/photo-1564769625905-50e93615e769?q=80&w=1200&auto=format&fit=crop">مسجد</option>
+<!-- 20 خلفية -->
 
-<option value="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200&auto=format&fit=crop">غروب</option>
+<div class="bg" onclick="setImage('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200')">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200">
+</div>
 
-<option value="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">طبيعة</option>
+<div class="bg" onclick="setImage('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200')">
+<img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200">
+</div>
 
-<option value="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop">أمواج</option>
+<div class="bg" onclick="setImage('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200')">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200">
+</div>
 
-<option value="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop">غابة</option>
+<div class="bg" onclick="setVideo('https://cdn.coverr.co/videos/coverr-clouds-and-blue-sky-1560084499578?download=1080p')">
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-clouds-and-blue-sky-1560084499578?download=1080p">
+</video>
+</div>
 
-<option value="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop">ثلوج</option>
+<div class="bg" onclick="setVideo('https://cdn.coverr.co/videos/coverr-sunset-over-the-mountains-1560084499578?download=1080p')">
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-sunset-over-the-mountains-1560084499578?download=1080p">
+</video>
+</div>
 
-<option value="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop">سحب</option>
+<div class="bg" onclick="setVideo('https://cdn.coverr.co/videos/coverr-aerial-view-of-ocean-waves-1560084499578?download=1080p')">
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-aerial-view-of-ocean-waves-1560084499578?download=1080p">
+</video>
+</div>
 
-<option value="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=1200&auto=format&fit=crop">بحيرة</option>
+</div>
 
-<option value="https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=1200&auto=format&fit=crop">طريق</option>
+</div>
 
-<option value="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=1200&auto=format&fit=crop">زهور</option>
+<button class="create" onclick="createReel()">
 
-<option value="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1200&auto=format&fit=crop">محيط</option>
+إنشاء الريلز 🔥
 
-<option value="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1200&auto=format&fit=crop">مدينة</option>
-
-<option value="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">صحراء</option>
-
-<option value="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop">قمر</option>
-
-<option value="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop">مطر</option>
-
-<option value="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?q=80&w=1200&auto=format&fit=crop">أشجار</option>
-
-<option value="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&auto=format&fit=crop">طبيعة خضراء</option>
-
-</select>
-
-<button class="btn" onclick="createReel()">
-إنشاء الريلز 🎬
 </button>
 
-<button class="btn download" onclick="downloadImage()">
-تحميل الريلز ⬇
+<button class="download">
+
+تحميل الفيديو
+
 </button>
 
 </div>
 
-<div class="preview" id="preview"
-style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop')">
-
-<div class="overlay">
-
-<div class="surah" id="surahText">
-سورة الفاتحة
 </div>
-
-<div class="reader" id="readerText">
-القارئ: مشاري العفاسي
-</div>
-
-<div class="ayah" id="ayahText">
-بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-Designed & Developed By
-
-<div class="designer">
-HAISAM MOSTAFA
-</div>
-
-</footer>
 
 <script>
 
-function updateSurah(value){
+const audio=document.getElementById("audio");
 
-document.getElementById("surahText").innerHTML =
-"سورة " + value;
+function playAudio(){
 
-}
-
-function updateReader(value){
-
-document.getElementById("readerText").innerHTML =
-"القارئ: " + value;
+audio.play();
 
 }
 
-function changeBg(value){
+function pauseAudio(){
 
-document.getElementById("preview").style.backgroundImage =
-"url('" + value + "')";
+audio.pause();
+
+}
+
+function changeSurah(){
+
+const surah=document.getElementById("surahSelect").value;
+
+document.getElementById("surahName").innerText=
+"سورة "+surah;
+
+}
+
+function changeReader(){
+
+const reader=document.getElementById("readerSelect").value;
+
+document.getElementById("readerName").innerText=
+"القارئ : "+reader;
+
+}
+
+function setImage(src){
+
+document.getElementById("imageBg").style.display="block";
+
+document.getElementById("videoBg").style.display="none";
+
+document.getElementById("imageBg").src=src;
+
+}
+
+function setVideo(src){
+
+const video=document.getElementById("videoBg");
+
+video.style.display="block";
+
+document.getElementById("imageBg").style.display="none";
+
+video.src=src;
+
+video.play();
 
 }
 
 function createReel(){
 
-let from =
-document.getElementById("fromAyah").value;
+const from=document.getElementById("fromAyah").value;
 
-let to =
-document.getElementById("toAyah").value;
+const to=document.getElementById("toAyah").value;
 
-document.getElementById("ayahText").innerHTML =
-"الآيات من " + from + " إلى " + to;
+if(from && to){
 
-alert("تم إنشاء الريلز بنجاح 🎬");
+document.getElementById("ayahText").innerHTML=
+"الآيات من "+from+" إلى "+to;
 
 }
 
-function downloadImage(){
-
-html2canvas(document.querySelector("#preview")).then(canvas=>{
-
-let link=document.createElement("a");
-
-link.download="quran-reel.png";
-
-link.href=canvas.toDataURL();
-
-link.click();
-
-});
+alert("تم إنشاء الريلز بنجاح 🔥");
 
 }
 
 </script>
 
-<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-
 </body>
-
 </html>
