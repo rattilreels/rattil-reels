@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <!-- Google tag (gtag.js) - تم إضافته هنا -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZT1GXKNH2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -15,157 +15,139 @@
     <title>ورتّل ريلز | HAITHAM STUDIO</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-        body{background:#020617;color:white;overflow-x:hidden;min-height:100vh;}
+        body{background:#020617;color:white;min-height:100vh;}
         
-        /* خلفية الموقع التفاعلية */
-        body::before{
-            content:'';position:fixed;width:100%;height:100%;
-            background:radial-gradient(circle at top,#1e3a8a55,transparent 40%),
-                       radial-gradient(circle at bottom,#7c3aed33,transparent 40%);
-            z-index:-1;animation:bgMove 10s infinite alternate;
-        }
-        @keyframes bgMove{0%{transform:scale(1);} 100%{transform:scale(1.05);}}
-
         nav{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:rgba(0,0,0,.4);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,.1);position:sticky;top:0;z-index:999;}
         .logo{font-size:28px;font-weight:900;background:linear-gradient(45deg,#38bdf8,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 
-        .hero{text-align:center;padding:40px 20px;}
-        .hero h1{font-size:48px;margin-bottom:10px;}
-        .hero h1 span{color:#38bdf8;}
-
-        .container{display:flex;justify-content:center;gap:40px;padding:20px;flex-wrap:wrap;}
+        .container{display:flex;justify-content:center;gap:30px;padding:40px 20px;flex-wrap:wrap;}
         
-        /* الإعدادات */
-        .settings{width:460px;background:rgba(255,255,255,0.05);padding:30px;border-radius:30px;backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);box-shadow:0 20px 50px rgba(0,0,0,0.3);}
-        label{display:block;margin-top:20px;margin-bottom:8px;font-size:16px;color:#cbd5e1;}
-        select,input{width:100%;padding:14px;border-radius:15px;background:#0f172a;color:white;border:1px solid #334155;outline:none;transition:0.3s;}
-        select:focus,input:focus{border-color:#38bdf8;}
-
-        .btn{width:100%;padding:18px;margin-top:30px;border:none;border-radius:18px;background:linear-gradient(45deg,#38bdf8,#8b5cf6);color:white;font-size:20px;font-weight:bold;cursor:pointer;transition:.4s;}
-        .btn:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(56,189,248,0.4);}
-
-        /* المعاينة (الريلز) */
-        .preview-box{position:relative;width:340px;height:600px;border-radius:40px;overflow:hidden;border:8px solid #1e293b;box-shadow:0 0 50px rgba(56,189,248,0.2);}
-        #bgVideo{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;z-index:0;transform:translate(-50%,-50%);object-fit:cover;}
+        .settings{width:450px;background:rgba(255,255,255,0.05);padding:25px;border-radius:25px;backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);}
+        h2 { margin-bottom: 20px; color: #38bdf8; }
         
-        .overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top, rgba(0,0,0,0.9) 10%, transparent 50%, rgba(0,0,0,0.4) 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px;text-align:center;}
+        label{display:block;margin-top:15px;margin-bottom:5px;font-size:14px;color:#cbd5e1;}
+        select,input{width:100%;padding:12px;border-radius:12px;background:#0f172a;color:white;border:1px solid #334155;outline:none;}
         
-        .surah-tag{background:rgba(56,189,248,0.25);border:1.5px solid #38bdf8;padding:8px 25px;border-radius:50px;font-size:22px;margin-bottom:15px;backdrop-filter:blur(10px);}
-        .reader-tag{color:#94a3b8;font-size:16px;margin-bottom:40px;background:rgba(255,255,255,0.05);padding:5px 15px;border-radius:10px;}
-        .ayah-display{font-size:28px;font-weight:700;line-height:1.8;text-shadow:0 4px 15px rgba(0,0,0,1);animation:floatText 4s infinite ease-in-out;}
+        .row { display: flex; gap: 10px; }
+        .row div { flex: 1; }
 
-        @keyframes floatText{0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);}}
+        .btn{width:100%;padding:16px;margin-top:20px;border:none;border-radius:15px;background:linear-gradient(45deg,#38bdf8,#8b5cf6);color:white;font-size:18px;font-weight:bold;cursor:pointer;transition:.3s;}
+        .btn.download{background:#16a34a; margin-top: 10px;}
+        .btn:hover{transform:translateY(-3px); opacity: 0.9;}
 
-        footer{text-align:center;padding:50px;margin-top:30px;}
-        .designer-name{font-weight:900;letter-spacing:2px;background:linear-gradient(45deg,#38bdf8,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:24px;}
+        /* الريلز */
+        .preview-box{position:relative;width:320px;height:568px;border-radius:35px;overflow:hidden;border:6px solid #1e293b; background:#000; box-shadow: 0 20px 50px rgba(0,0,0,0.5);}
+        .bg-layer { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; }
+        .overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top, rgba(0,0,0,0.8), transparent, rgba(0,0,0,0.4));display:flex;flex-direction:column;justify-content:center;align-items:center;padding:25px;text-align:center;}
+        
+        .surah-tag{background:rgba(56,189,248,0.2); border:1px solid #38bdf8; padding:5px 20px; border-radius:50px; font-size:22px;}
+        .ayah-range { font-size: 14px; color: #38bdf8; margin-bottom: 10px; margin-top: 5px; font-weight: bold;}
+        .reader-tag{color:#94a3b8; font-size:14px; margin-bottom:30px;}
+        .ayah-display{font-size:26px; font-weight:700; line-height:1.6; text-shadow:0 2px 10px #000;}
+
+        footer{text-align:center;padding:30px; color: #475569;}
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">HAITHAM STUDIO</div>
-    <div>تحليل البيانات نشط ✅</div>
+    <div>ورتّل ريلز | تحديث الآيات</div>
 </nav>
 
-<section class="hero">
-    <h1>ورتّل <span>ريلز</span> القرآنية</h1>
-    <p>صمم فيديوهات قصيرة احترافية بضغطة زر</p>
-</section>
-
 <section class="container">
-    <!-- لوحة التحكم -->
     <div class="settings">
-        <h2>تجهيز المقطع ✨</h2>
+        <h2>تعديل الريلز ✨</h2>
         
-        <label>اختر السورة</label>
+        <label>السورة</label>
         <select id="surahList"></select>
 
-        <label>اختر القارئ (أشهر 40 شيخ)</label>
+        <div class="row">
+            <div>
+                <label>من آية</label>
+                <input type="number" id="fromAyah" value="1">
+            </div>
+            <div>
+                <label>إلى آية</label>
+                <input type="number" id="toAyah" value="7">
+            </div>
+        </div>
+
+        <label>القارئ</label>
         <select id="readerList"></select>
 
-        <label>الآية المراد عرضها</label>
-        <input type="text" id="ayahInput" placeholder="أدخل نص الآية هنا...">
+        <label>نص الآية المعروضة</label>
+        <input type="text" id="ayahInput" placeholder="اكتب نص الآية هنا">
 
         <label>الخلفية المتحركة</label>
-        <select id="videoSelect" onchange="updateVideo(this.value)">
-            <option value="https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-night-sky-11641-large.mp4">نجوم ساطعة</option>
-            <option value="https://assets.mixkit.co/videos/preview/mixkit-mysterious-pale-looking-moon-in-the-sky-40018-large.mp4">القمر والغيوم</option>
-            <option value="https://assets.mixkit.co/videos/preview/mixkit-underwater-view-of-ocean-waves-14051-large.mp4">أعماق البحار</option>
-            <option value="https://assets.mixkit.co/videos/preview/mixkit-very-close-shot-of-the-leaves-of-a-tree-42352-large.mp4">طبيعة خضراء</option>
-            <option value="https://assets.mixkit.co/videos/preview/mixkit-sunny-forest-landscape-with-light-passing-through-the-trees-8025-large.mp4">أشعة الشمس في الغابة</option>
+        <select id="bgSelect" onchange="changeBg(this.value)">
+            <option value="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpbmZqZ3RreXF6Yndnd2Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z/3o7TKVUn7iM8FMEU24/giphy.gif">فضاء ونجوم</option>
+            <option value="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpbmZqZ3RreXF6Yndnd2Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z/l41lTfuxV37yL7fQ4/giphy.gif">غيوم متحركة</option>
+            <option value="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpbmZqZ3RreXF6Yndnd2Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z/3o7TKMGpxPucCq7Ptm/giphy.gif">بحر هادئ</option>
         </select>
 
-        <button class="btn" onclick="applyChanges()">تحديث المعاينة الآن 🎬</button>
+        <button class="btn" onclick="applyChanges()">تحديث المعاينة 🎬</button>
+        <button class="btn download" onclick="downloadReel()">تحميل كصورة ⬇️</button>
     </div>
 
-    <!-- منطقة الريلز -->
-    <div class="preview-box">
-        <video id="bgVideo" autoplay muted loop>
-            <source id="vidSrc" src="https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-night-sky-11641-large.mp4" type="video/mp4">
-        </video>
+    <div class="preview-box" id="reelContainer">
+        <div class="bg-layer" id="bgLayer" style="background-image: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpbmZqZ3RreXF6Yndnd2Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3Z/3o7TKVUn7iM8FMEU24/giphy.gif');"></div>
         <div class="overlay">
-            <div class="surah-tag" id="viewSurah">سورة الفاتحة</div>
-            <div class="reader-tag" id="viewReader">مشاري العفاسي</div>
-            <div class="ayah-display" id="viewAyah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            <div class="surah-tag" id="vSurah">سورة الفاتحة</div>
+            <div class="ayah-range" id="vRange">الآيات: 1 - 7</div>
+            <div class="reader-tag" id="vReader">مشاري العفاسي</div>
+            <div class="ayah-display" id="vAyah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
         </div>
     </div>
 </section>
 
-<footer>
-    Designed & Developed By<br>
-    <span class="designer-name">HAISAM MOSTAFA</span>
-</footer>
+<footer>Developed By <span style="color:#38bdf8">HAISAM MOSTAFA</span></footer>
 
 <script>
-    // بيانات السور والقراء
-    const allSurahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود","يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه","الأنبياء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","يس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الإنفطار","المطففين","الإنشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
+    const surahs = ["الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود","يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه","الأنبياء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم","لقمان","السجدة","الأحزاب","سبأ","فاطر","يس","الصافات","ص","الزمر","غافر","فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس","التكوير","الإنفطار","المطففين","الإنشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد","الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
+    const readers = ["مشاري العفاسي", "ماهر المعيقلي", "عبد الباسط عبد الصمد", "محمد صديق المنشاوي", "ياسر الدوسري", "أحمد العجمي", "سعد الغامدي", "فارس عباد", "ناصر القطامي", "محمود خليل الحصري", "إدريس أبكر", "هزاع البلوشي", "رعد الكردي", "وديع اليمني", "سعود الشريم", "عبد الرحمن السديس", "علي الحذيفي", "صلاح البدير", "عبد الله الجهني", "بندر بليلة", "خالد الجليل", "محمد اللحيدان", "منصور السالمي", "إسلام صبحي", "ماجد الزامل", "نايف الفيصل", "أحمد النفيس", "عبد العزيز الزهراني", "علي جابر", "محمد أيوب", "محمود علي البنا", "مصطفى إسماعيل", "أبو بكر الشاطري", "سهل ياسين", "صلاح بو خاطر", "عبد الرشيد صوفي", "محمد جبريل", "شيرزاد عبد الرحمن", "خالد القحطاني", "أحمد نعينع"];
 
-    const allReaders = ["مشاري العفاسي", "ماهر المعيقلي", "عبد الباسط عبد الصمد", "محمد صديق المنشاوي", "ياسر الدوسري", "أحمد العجمي", "سعد الغامدي", "فارس عباد", "ناصر القطامي", "محمود خليل الحصري", "إدريس أبكر", "هزاع البلوشي", "رعد الكردي", "وديع اليمني", "سعود الشريم", "عبد الرحمن السديس", "علي الحذيفي", "صلاح البدير", "عبد الله الجهني", "بندر بليلة", "خالد الجليل", "محمد اللحيدان", "منصور السالمي", "إسلام صبحي", "ماجد الزامل", "نايف الفيصل", "أحمد النفيس", "عبد العزيز الزهراني", "علي جابر", "محمد أيوب", "محمود علي البنا", "مصطفى إسماعيل", "أبو بكر الشاطري", "سهل ياسين", "صلاح بو خاطر", "عبد الرشيد صوفي", "محمد جبريل", "شيرزاد عبد الرحمن", "خالد القحطاني", "أحمد نعينع"];
+    window.onload = () => {
+        const s = document.getElementById('surahList');
+        surahs.forEach(x => s.add(new Option(x, x)));
+        const r = document.getElementById('readerList');
+        readers.forEach(x => r.add(new Option(x, x)));
+    };
 
-    // ملء القوائم تلقائياً
-    window.onload = function() {
-        const sSelect = document.getElementById('surahList');
-        allSurahs.forEach(s => {
-            let op = new Option(s, s);
-            sSelect.add(op);
-        });
-
-        const rSelect = document.getElementById('readerList');
-        allReaders.forEach(r => {
-            let op = new Option(r, r);
-            rSelect.add(op);
-        });
-    }
-
-    function updateVideo(src) {
-        const video = document.getElementById('bgVideo');
-        const source = document.getElementById('vidSrc');
-        source.src = src;
-        video.load();
-        video.play();
+    function changeBg(url) {
+        document.getElementById('bgLayer').style.backgroundImage = `url('${url}')`;
     }
 
     function applyChanges() {
-        const surah = document.getElementById('surahList').value;
-        const reader = document.getElementById('readerList').value;
-        const ayah = document.getElementById('ayahInput').value;
-
-        document.getElementById('viewSurah').innerText = "سورة " + surah;
-        document.getElementById('viewReader').innerText = "بصوت القارئ: " + reader;
+        // تحديث السورة
+        document.getElementById('vSurah').innerText = "سورة " + document.getElementById('surahList').value;
         
-        if(ayah.trim() !== "") {
-            document.getElementById('viewAyah').innerText = ayah;
-        }
+        // تحديث النطاق (من - إلى)
+        const from = document.getElementById('fromAyah').value;
+        const to = document.getElementById('toAyah').value;
+        document.getElementById('vRange').innerText = `الآيات: ${from} - ${to}`;
+        
+        // تحديث القارئ
+        document.getElementById('vReader').innerText = "القارئ: " + document.getElementById('readerList').value;
+        
+        // تحديث نص الآية
+        const txt = document.getElementById('ayahInput').value;
+        if(txt) document.getElementById('vAyah').innerText = txt;
+    }
 
-        // إرسال حدث لـ Google Analytics عند ضغط الزر (اختياري لتعقب الاستخدام)
-        gtag('event', 'create_reel', {
-            'event_category': 'Engagement',
-            'event_label': surah
+    function downloadReel() {
+        const container = document.getElementById('reelContainer');
+        html2canvas(container, { useCORS: true }).then(canvas => {
+            const link = document.createElement('a');
+            link.download = 'quran-reel.png';
+            link.href = canvas.toDataURL();
+            link.click();
         });
     }
 </script>
-
 </body>
 </html>
