@@ -1,288 +1,557 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QuickQR | تحويل الروابط إلى QR Code</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<title>ورتّل ريلز | HAITHAM STUDIO</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Cairo', sans-serif;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow-x: hidden;
-      padding: 20px;
-      color: white;
-    }
+<style>
 
-    .bg {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      overflow: hidden;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
 
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.05);
-      animation: float 12s infinite linear;
-    }
+body{
+background:#020617;
+color:white;
+overflow-x:hidden;
+min-height:100vh;
+}
 
-    .circle:nth-child(1) {
-      width: 250px;
-      height: 250px;
-      top: 10%;
-      left: 10%;
-    }
+body::before{
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at top,#1e3a8a55,transparent 40%),
+radial-gradient(circle at bottom,#7c3aed33,transparent 40%);
+animation:bgMove 8s infinite alternate;
+z-index:-1;
+}
 
-    .circle:nth-child(2) {
-      width: 180px;
-      height: 180px;
-      bottom: 15%;
-      right: 15%;
-      animation-duration: 15s;
-    }
+@keyframes bgMove{
+0%{transform:scale(1);}
+100%{transform:scale(1.1);}
+}
 
-    .circle:nth-child(3) {
-      width: 120px;
-      height: 120px;
-      top: 60%;
-      left: 50%;
-      animation-duration: 18s;
-    }
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 40px;
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.08);
+position:sticky;
+top:0;
+z-index:999;
+}
 
-    @keyframes float {
-      0% {
-        transform: translateY(0px) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-20px) rotate(180deg);
-      }
-      100% {
-        transform: translateY(0px) rotate(360deg);
-      }
-    }
+.logo{
+font-size:34px;
+font-weight:900;
+background:linear-gradient(45deg,#38bdf8,#8b5cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-    .container {
-      width: 100%;
-      max-width: 500px;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 30px;
-      padding: 35px;
-      text-align: center;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-    }
+.hero{
+text-align:center;
+padding:60px 20px;
+}
 
-    .logo {
-      width: 85px;
-      height: 85px;
-      margin: auto;
-      border-radius: 25px;
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 35px;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 30px rgba(59,130,246,0.4);
-    }
+.hero h1{
+font-size:65px;
+margin-bottom:10px;
+}
 
-    h1 {
-      font-size: 34px;
-      margin-bottom: 10px;
-      font-weight: 800;
-    }
+.hero span{
+color:#38bdf8;
+}
 
-    .desc {
-      color: #cbd5e1;
-      margin-bottom: 30px;
-      line-height: 1.8;
-      font-size: 15px;
-    }
+.hero p{
+font-size:22px;
+color:#cbd5e1;
+}
 
-    .input-box {
-      margin-bottom: 20px;
-    }
+.container{
+display:flex;
+justify-content:center;
+gap:45px;
+padding:20px 30px 60px;
+flex-wrap:wrap;
+}
 
-    input {
-      width: 100%;
-      padding: 18px;
-      border: none;
-      outline: none;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.1);
-      color: white;
-      font-size: 16px;
-      transition: 0.3s;
-      border: 1px solid transparent;
-    }
+.settings{
+width:470px;
+background:rgba(255,255,255,.05);
+padding:30px;
+border-radius:30px;
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 0 25px rgba(56,189,248,.08);
+}
 
-    input:focus {
-      border-color: #3b82f6;
-      box-shadow: 0 0 20px rgba(59,130,246,0.3);
-    }
+.settings h2{
+font-size:34px;
+margin-bottom:15px;
+}
 
-    input::placeholder {
-      color: #94a3b8;
-    }
+label{
+display:block;
+margin-top:18px;
+margin-bottom:8px;
+font-size:18px;
+}
 
-    button {
-      width: 100%;
-      padding: 18px;
-      border: none;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      margin-bottom: 25px;
-    }
+select,input{
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+background:#0f172a;
+color:white;
+font-size:17px;
+outline:none;
+}
 
-    button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(59,130,246,0.4);
-    }
+.btn{
+width:100%;
+padding:18px;
+margin-top:28px;
+border:none;
+border-radius:18px;
+background:linear-gradient(45deg,#38bdf8,#8b5cf6);
+color:white;
+font-size:22px;
+font-weight:bold;
+cursor:pointer;
+transition:.4s;
+}
 
-    #qrcode {
-      display: flex;
-      justify-content: center;
-      margin-top: 15px;
-      margin-bottom: 20px;
-    }
+.btn:hover{
+transform:scale(1.03);
+box-shadow:0 0 30px rgba(56,189,248,.5);
+}
 
-    #qrcode img {
-      background: white;
-      padding: 12px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
+.preview{
+width:360px;
+height:640px;
+border-radius:35px;
+overflow:hidden;
+position:relative;
+background-size:cover;
+background-position:center;
+box-shadow:0 0 45px rgba(56,189,248,.25);
+animation:float 4s infinite ease-in-out;
+transition:.5s;
+}
 
-    .download-btn {
-      display: none;
-      text-decoration: none;
-      background: #10b981;
-      color: white;
-      padding: 14px 25px;
-      border-radius: 15px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0px);}
+}
 
-    .download-btn:hover {
-      background: #059669;
-    }
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,
+rgba(0,0,0,.92),
+rgba(0,0,0,.15));
+display:flex;
+flex-direction:column;
+justify-content:end;
+align-items:center;
+padding:35px;
+text-align:center;
+}
 
-    .footer {
-      margin-top: 25px;
-      color: #94a3b8;
-      font-size: 14px;
-    }
+.surah{
+background:rgba(0,0,0,.5);
+padding:12px 24px;
+border-radius:25px;
+font-size:28px;
+margin-bottom:18px;
+backdrop-filter:blur(10px);
+}
 
-    @media(max-width:600px) {
-      .container {
-        padding: 25px;
-      }
+.reader{
+background:rgba(139,92,246,.4);
+padding:10px 22px;
+border-radius:20px;
+font-size:18px;
+margin-bottom:22px;
+}
 
-      h1 {
-        font-size: 28px;
-      }
-    }
-  </style>
+.ayah{
+font-size:31px;
+line-height:2;
+font-weight:900;
+text-shadow:0 0 15px black;
+animation:fadeIn 2s infinite alternate;
+}
+
+@keyframes fadeIn{
+0%{opacity:.7;}
+100%{opacity:1;}
+}
+
+footer{
+text-align:center;
+padding:45px;
+}
+
+.designer{
+font-size:30px;
+font-weight:900;
+letter-spacing:5px;
+background:linear-gradient(45deg,#38bdf8,#8b5cf6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.download{
+margin-top:18px;
+background:#16a34a;
+}
+
+.download:hover{
+box-shadow:0 0 30px rgba(34,197,94,.4);
+}
+
+</style>
+
 </head>
+
 <body>
 
-  <div class="bg">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-  </div>
+<nav>
 
-  <div class="container">
+<div class="logo">
+HAITHAM STUDIO
+</div>
 
-    <div class="logo">🔳</div>
+<div>
+ريلز قرآنية احترافية
+</div>
 
-    <h1>QuickQR</h1>
+</nav>
 
-    <p class="desc">
-      حوّل أي رابط إلى QR Code بشكل سريع واحترافي
-      وقم بتحميله بضغطة واحدة.
-    </p>
+<section class="hero">
 
-    <div class="input-box">
-      <input type="text" id="url" placeholder="ضع الرابط هنا...">
-    </div>
+<h1>
+أنشئ <span>ريلز قرآني</span> احترافي
+</h1>
 
-    <button onclick="generateQR()">
-      إنشاء QR Code
-    </button>
+<p>
+اختر السورة والقارئ والخلفية والآيات وشاهد المعاينة مباشرة
+</p>
 
-    <div id="qrcode"></div>
+</section>
 
-    <a id="downloadBtn" class="download-btn" download="quickqr.png">
-      تحميل QR Code
-    </a>
+<section class="container">
 
-    <div class="footer">
-      جميع الحقوق محفوظة © QuickQR
-    </div>
+<div class="settings">
 
-  </div>
+<h2>
+إعدادات الريلز ✨
+</h2>
 
-  <script>
-    function generateQR() {
-      const url = document.getElementById("url").value;
-      const qrContainer = document.getElementById("qrcode");
-      const downloadBtn = document.getElementById("downloadBtn");
+<label>
+اختر السورة
+</label>
 
-      qrContainer.innerHTML = "";
+<select onchange="updateSurah(this.value)" id="surahSelect">
 
-      if(url.trim() === "") {
-        alert("من فضلك ضع رابط أولاً");
-        return;
-      }
+<option>الفاتحة</option>
+<option>البقرة</option>
+<option>آل عمران</option>
+<option>النساء</option>
+<option>المائدة</option>
+<option>الأنعام</option>
+<option>الأعراف</option>
+<option>الأنفال</option>
+<option>التوبة</option>
+<option>يونس</option>
+<option>هود</option>
+<option>يوسف</option>
+<option>الرعد</option>
+<option>إبراهيم</option>
+<option>الحجر</option>
+<option>النحل</option>
+<option>الإسراء</option>
+<option>الكهف</option>
+<option>مريم</option>
+<option>طه</option>
+<option>الأنبياء</option>
+<option>الحج</option>
+<option>المؤمنون</option>
+<option>النور</option>
+<option>الفرقان</option>
+<option>الشعراء</option>
+<option>النمل</option>
+<option>القصص</option>
+<option>العنكبوت</option>
+<option>الروم</option>
+<option>لقمان</option>
+<option>السجدة</option>
+<option>الأحزاب</option>
+<option>سبأ</option>
+<option>فاطر</option>
+<option>يس</option>
+<option>الصافات</option>
+<option>ص</option>
+<option>الزمر</option>
+<option>غافر</option>
+<option>فصلت</option>
+<option>الشورى</option>
+<option>الزخرف</option>
+<option>الدخان</option>
+<option>الجاثية</option>
+<option>الأحقاف</option>
+<option>محمد</option>
+<option>الفتح</option>
+<option>الحجرات</option>
+<option>ق</option>
+<option>الذاريات</option>
+<option>الطور</option>
+<option>النجم</option>
+<option>القمر</option>
+<option>الرحمن</option>
+<option>الواقعة</option>
+<option>الحديد</option>
+<option>المجادلة</option>
+<option>الحشر</option>
+<option>الممتحنة</option>
+<option>الصف</option>
+<option>الجمعة</option>
+<option>المنافقون</option>
+<option>التغابن</option>
+<option>الطلاق</option>
+<option>التحريم</option>
+<option>الملك</option>
+<option>القلم</option>
+<option>الحاقة</option>
+<option>المعارج</option>
+<option>نوح</option>
+<option>الجن</option>
+<option>المزمل</option>
+<option>المدثر</option>
+<option>القيامة</option>
+<option>الإنسان</option>
+<option>المرسلات</option>
+<option>النبأ</option>
+<option>النازعات</option>
+<option>عبس</option>
+<option>التكوير</option>
+<option>الإنفطار</option>
+<option>المطففين</option>
+<option>الإنشقاق</option>
+<option>البروج</option>
+<option>الطارق</option>
+<option>الأعلى</option>
+<option>الغاشية</option>
+<option>الفجر</option>
+<option>البلد</option>
+<option>الشمس</option>
+<option>الليل</option>
+<option>الضحى</option>
+<option>الشرح</option>
+<option>التين</option>
+<option>العلق</option>
+<option>القدر</option>
+<option>البينة</option>
+<option>الزلزلة</option>
+<option>العاديات</option>
+<option>القارعة</option>
+<option>التكاثر</option>
+<option>العصر</option>
+<option>الهمزة</option>
+<option>الفيل</option>
+<option>قريش</option>
+<option>الماعون</option>
+<option>الكوثر</option>
+<option>الكافرون</option>
+<option>النصر</option>
+<option>المسد</option>
+<option>الإخلاص</option>
+<option>الفلق</option>
+<option>الناس</option>
 
-      new QRCode(qrContainer, {
-        text: url,
-        width: 250,
-        height: 250,
-        colorDark: "#000000",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
-      });
+</select>
 
-      setTimeout(() => {
-        const qrImg = qrContainer.querySelector("img");
+<label>
+من الآية
+</label>
 
-        if(qrImg) {
-          downloadBtn.href = qrImg.src;
-          downloadBtn.style.display = "inline-block";
-        }
-      }, 300);
-    }
-  </script>
+<input type="number" id="fromAyah" value="1">
+
+<label>
+إلى الآية
+</label>
+
+<input type="number" id="toAyah" value="7">
+
+<label>
+اسم القارئ
+</label>
+
+<select onchange="updateReader(this.value)">
+
+<option>مشاري العفاسي</option>
+<option>ماهر المعيقلي</option>
+<option>ياسر الدوسري</option>
+<option>عبد الباسط عبد الصمد</option>
+<option>أحمد العجمي</option>
+<option>سعد الغامدي</option>
+<option>فارس عباد</option>
+<option>ناصر القطامي</option>
+<option>محمد صديق المنشاوي</option>
+<option>محمود خليل الحصري</option>
+
+</select>
+
+<label>
+الخلفية
+</label>
+
+<select onchange="changeBg(this.value)">
+
+<option value="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">جبال</option>
+
+<option value="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200&auto=format&fit=crop">بحر</option>
+
+<option value="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop">سماء</option>
+
+<option value="https://images.unsplash.com/photo-1564769625905-50e93615e769?q=80&w=1200&auto=format&fit=crop">مسجد</option>
+
+</select>
+
+<button class="btn" onclick="createReel()">
+إنشاء الريلز 🎬
+</button>
+
+<button class="btn download" onclick="downloadImage()">
+تحميل الريلز ⬇
+</button>
+
+</div>
+
+<div class="preview" id="preview"
+style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop')">
+
+<div class="overlay">
+
+<div class="surah" id="surahText">
+سورة الفاتحة
+</div>
+
+<div class="reader" id="readerText">
+القارئ: مشاري العفاسي
+</div>
+
+<div class="ayah" id="ayahText">
+بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+Designed & Developed By
+
+<div class="designer">
+HAISAM MOSTAFA
+</div>
+
+</footer>
+
+<script>
+
+function updateSurah(value){
+
+document.getElementById("surahText").innerHTML =
+"سورة " + value;
+
+}
+
+function updateReader(value){
+
+document.getElementById("readerText").innerHTML =
+"القارئ: " + value;
+
+}
+
+function changeBg(value){
+
+document.getElementById("preview").style.backgroundImage =
+"url('" + value + "')";
+
+}
+
+function createReel(){
+
+let surah =
+document.getElementById("surahSelect").value;
+
+let from =
+document.getElementById("fromAyah").value;
+
+let to =
+document.getElementById("toAyah").value;
+
+document.getElementById("ayahText").innerHTML =
+"سورة " + surah +
+"<br><br>" +
+"الآيات من " + from +
+" إلى " + to;
+
+document.getElementById("preview").style.transform =
+"scale(1.03)";
+
+setTimeout(()=>{
+
+document.getElementById("preview").style.transform =
+"scale(1)";
+
+},700);
+
+}
+
+function downloadImage(){
+
+html2canvas(document.querySelector("#preview")).then(canvas=>{
+
+let link=document.createElement("a");
+
+link.download="quran-reel.png";
+
+link.href=canvas.toDataURL();
+
+link.click();
+
+});
+
+}
+
+</script>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
 </body>
+
 </html>
