@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 
 <head>
-<!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZT1GXKNH2"></script>
 
 <script>
@@ -32,16 +32,14 @@ body{
 background:#020617;
 color:white;
 overflow-x:hidden;
-min-height:100vh;
 }
 
 body::before{
 content:'';
 position:fixed;
-width:100%;
-height:100%;
+inset:0;
 background:
-radial-gradient(circle at top,#1e3a8a55,transparent 40%),
+radial-gradient(circle at top,#2563eb33,transparent 40%),
 radial-gradient(circle at bottom,#7c3aed33,transparent 40%);
 z-index:-1;
 }
@@ -50,17 +48,13 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:22px 40px;
-background:rgba(0,0,0,.35);
-backdrop-filter:blur(12px);
+padding:20px 40px;
+background:#020617;
 border-bottom:1px solid rgba(255,255,255,.08);
-position:sticky;
-top:0;
-z-index:999;
 }
 
 .logo{
-font-size:34px;
+font-size:40px;
 font-weight:900;
 background:linear-gradient(45deg,#38bdf8,#8b5cf6);
 -webkit-background-clip:text;
@@ -69,12 +63,12 @@ background:linear-gradient(45deg,#38bdf8,#8b5cf6);
 
 .hero{
 text-align:center;
-padding:50px 20px;
+padding:40px 20px;
 }
 
 .hero h1{
 font-size:60px;
-margin-bottom:10px;
+margin-bottom:15px;
 }
 
 .hero span{
@@ -89,42 +83,68 @@ color:#cbd5e1;
 .container{
 display:flex;
 justify-content:center;
-gap:45px;
-padding:20px 30px 60px;
+gap:40px;
+padding:20px;
 flex-wrap:wrap;
 }
 
-.settings{
+.panel{
 width:470px;
-background:rgba(255,255,255,.05);
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
 padding:30px;
 border-radius:30px;
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,.08);
-box-shadow:0 0 25px rgba(56,189,248,.08);
+backdrop-filter:blur(15px);
 }
 
-.settings h2{
-font-size:34px;
-margin-bottom:15px;
+.panel h2{
+font-size:32px;
+margin-bottom:20px;
+color:#38bdf8;
 }
 
 label{
 display:block;
-margin-top:18px;
+margin-top:20px;
 margin-bottom:8px;
 font-size:18px;
 }
 
-select,input{
+select,
+input{
 width:100%;
 padding:16px;
+background:#0f172a;
 border:none;
 border-radius:16px;
-background:#0f172a;
 color:white;
 font-size:17px;
 outline:none;
+}
+
+.image-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin-top:15px;
+}
+
+.image-grid img{
+width:100%;
+height:110px;
+object-fit:cover;
+border-radius:15px;
+cursor:pointer;
+border:3px solid transparent;
+transition:.3s;
+}
+
+.image-grid img:hover{
+transform:scale(1.03);
+}
+
+.image-grid img.active{
+border-color:#38bdf8;
 }
 
 .btn{
@@ -133,17 +153,16 @@ padding:18px;
 margin-top:25px;
 border:none;
 border-radius:18px;
-background:linear-gradient(45deg,#38bdf8,#8b5cf6);
-color:white;
 font-size:22px;
 font-weight:bold;
 cursor:pointer;
-transition:.4s;
+background:linear-gradient(45deg,#38bdf8,#8b5cf6);
+color:white;
+transition:.3s;
 }
 
 .btn:hover{
-transform:scale(1.03);
-box-shadow:0 0 30px rgba(56,189,248,.5);
+transform:scale(1.02);
 }
 
 .preview{
@@ -154,15 +173,14 @@ overflow:hidden;
 position:relative;
 background-size:cover;
 background-position:center;
-box-shadow:0 0 45px rgba(56,189,248,.25);
-transition:.5s;
+box-shadow:0 0 40px rgba(56,189,248,.2);
 }
 
 .overlay{
 position:absolute;
 inset:0;
 background:linear-gradient(to top,
-rgba(0,0,0,.92),
+rgba(0,0,0,.95),
 rgba(0,0,0,.1));
 display:flex;
 flex-direction:column;
@@ -173,65 +191,54 @@ text-align:center;
 }
 
 .surah{
-background:rgba(0,0,0,.5);
-padding:12px 24px;
-border-radius:25px;
-font-size:28px;
+font-size:35px;
+font-weight:900;
 margin-bottom:18px;
-backdrop-filter:blur(10px);
+background:rgba(0,0,0,.45);
+padding:10px 25px;
+border-radius:20px;
 }
 
 .reader{
-background:rgba(139,92,246,.4);
-padding:10px 22px;
-border-radius:20px;
-font-size:18px;
-margin-bottom:22px;
+font-size:20px;
+margin-bottom:25px;
+background:rgba(139,92,246,.35);
+padding:10px 20px;
+border-radius:18px;
 }
 
 .ayah{
-font-size:31px;
+font-size:32px;
 line-height:2;
 font-weight:900;
-text-shadow:0 0 15px black;
-max-height:350px;
-overflow:auto;
-}
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-margin-top:20px;
-}
-
-.gallery img{
-width:100%;
-height:90px;
-object-fit:cover;
-border-radius:15px;
-cursor:pointer;
-border:2px solid transparent;
-transition:.3s;
-}
-
-.gallery img:hover{
-border:2px solid #38bdf8;
-transform:scale(1.05);
+text-shadow:0 0 10px black;
 }
 
 footer{
 text-align:center;
-padding:45px;
-}
-
-.designer{
-font-size:30px;
+padding:40px;
+font-size:25px;
 font-weight:900;
-letter-spacing:5px;
 background:linear-gradient(45deg,#38bdf8,#8b5cf6);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+}
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:42px;
+}
+
+.panel{
+width:100%;
+}
+
+.preview{
+width:100%;
+max-width:360px;
+}
+
 }
 
 </style>
@@ -247,7 +254,7 @@ HAITHAM STUDIO
 </div>
 
 <div>
-ورتّل ريلز ✨
+ورتّل ريلز 🎬
 </div>
 
 </nav>
@@ -259,83 +266,24 @@ HAITHAM STUDIO
 </h1>
 
 <p>
-اختر السورة والقارئ والصورة والآيات وشاهد النتيجة مباشرة
+اختر السورة والقارئ والآيات والخلفية وشاهد النتيجة فورًا
 </p>
 
 </section>
 
 <section class="container">
 
-<div class="settings">
+<div class="panel">
 
 <h2>
-إعدادات الريلز 🎬
+إعدادات الريلز ✨
 </h2>
 
 <label>
 اختر السورة
 </label>
 
-<select id="surahSelect">
-
-<option>الفاتحة</option>
-<option>البقرة</option>
-<option>آل عمران</option>
-<option>النساء</option>
-<option>المائدة</option>
-<option>الأنعام</option>
-<option>الأعراف</option>
-<option>الأنفال</option>
-<option>التوبة</option>
-<option>يونس</option>
-<option>هود</option>
-<option>يوسف</option>
-<option>الرعد</option>
-<option>إبراهيم</option>
-<option>الحجر</option>
-<option>النحل</option>
-<option>الإسراء</option>
-<option>الكهف</option>
-<option>مريم</option>
-<option>طه</option>
-<option>يس</option>
-<option>الرحمن</option>
-<option>الواقعة</option>
-<option>الملك</option>
-<option>النبأ</option>
-<option>النازعات</option>
-<option>عبس</option>
-<option>التكوير</option>
-<option>الأعلى</option>
-<option>الغاشية</option>
-<option>الفجر</option>
-<option>البلد</option>
-<option>الشمس</option>
-<option>الليل</option>
-<option>الضحى</option>
-<option>الشرح</option>
-<option>التين</option>
-<option>العلق</option>
-<option>القدر</option>
-<option>البينة</option>
-<option>الزلزلة</option>
-<option>العاديات</option>
-<option>القارعة</option>
-<option>التكاثر</option>
-<option>العصر</option>
-<option>الهمزة</option>
-<option>الفيل</option>
-<option>قريش</option>
-<option>الماعون</option>
-<option>الكوثر</option>
-<option>الكافرون</option>
-<option>النصر</option>
-<option>المسد</option>
-<option>الإخلاص</option>
-<option>الفلق</option>
-<option>الناس</option>
-
-</select>
+<select id="surahSelect"></select>
 
 <label>
 من الآية
@@ -357,44 +305,44 @@ HAITHAM STUDIO
 
 <option>مشاري العفاسي</option>
 <option>ماهر المعيقلي</option>
-<option>عبد الباسط عبد الصمد</option>
 <option>ياسر الدوسري</option>
-<option>فارس عباد</option>
+<option>عبد الباسط عبد الصمد</option>
 <option>أحمد العجمي</option>
-<option>ناصر القطامي</option>
 <option>سعد الغامدي</option>
+<option>فارس عباد</option>
+<option>ناصر القطامي</option>
 <option>محمد صديق المنشاوي</option>
 <option>محمود خليل الحصري</option>
-<option>أبو بكر الشاطري</option>
 <option>إدريس أبكر</option>
-<option>هزاع البلوشي</option>
+<option>أبو بكر الشاطري</option>
 <option>خالد الجليل</option>
-<option>عبدالرحمن السديس</option>
+<option>هزاع البلوشي</option>
+<option>عبد الرحمن السديس</option>
 <option>سعود الشريم</option>
-<option>علي جابر</option>
-<option>عبدالله بصفر</option>
-<option>محمد اللحيدان</option>
-<option>توفيق الصايغ</option>
 <option>صلاح البدير</option>
-<option>عبدالمحسن القاسم</option>
-<option>وليد الدليمي</option>
-<option>أكرم العلاقمي</option>
-<option>خالد المهنا</option>
 <option>بندر بليلة</option>
-<option>حاتم فريد</option>
-<option>إسلام صبحي</option>
-<option>يوسف معاطي</option>
-<option>محمد أيوب</option>
-<option>محمد جبريل</option>
-<option>طبلاوي</option>
-<option>الطبلاوي</option>
-<option>الحذيفي</option>
-<option>عبدالودود حنيف</option>
+<option>يحيى حوا</option>
+<option>وليد الدليمي</option>
+<option>علي جابر</option>
+<option>حسين آل الشيخ</option>
+<option>أكرم العلاقمي</option>
+<option>توفيق الصايغ</option>
+<option>محمد اللحيدان</option>
+<option>عبد الودود حنيف</option>
+<option>عبد الله بصفر</option>
 <option>خالد القحطاني</option>
-<option>رعد الكردي</option>
+<option>محمد جبريل</option>
 <option>أحمد النفيس</option>
-<option>عبدالعزيز الزهراني</option>
-<option>محمد البراك</option>
+<option>إسلام صبحي</option>
+<option>رامي محمد</option>
+<option>عبد العزيز الزهراني</option>
+<option>حسن صالح</option>
+<option>حسنين مخلوف</option>
+<option>عمر القزابري</option>
+<option>فتحي الصافي</option>
+<option>رشيد بلعالية</option>
+<option>عبد الله الموسى</option>
+<option>عبد الرشيد صوفي</option>
 
 </select>
 
@@ -402,43 +350,48 @@ HAITHAM STUDIO
 اختر صورة الخلفية
 </label>
 
-<div class="gallery">
+<div class="image-grid">
 
-<img src="https://picsum.photos/id/10/300/500" onclick="setBg(this.src)">
-<img src="https://picsum.photos/id/20/300/500" onclick="setBg(this.src)">
-<img src="https://picsum.photos/id/30/300/500" onclick="setBg(this.src)">
-<img src="https://picsum.photos/id/40/300/500" onclick="setBg(this.src)">
-<img src="https://picsum.photos/id/50/300/500" onclick="setBg(this.src)">
-<img src="https://picsum.photos/id/60/300/500" onclick="setBg(this.src)">
-<img src="https://picsum.photos/id/70/300/500" onclick="setBg(this.src)">
-<img src="https://picsum.photos/id/80/300/500" onclick="setBg(this.src)">
-<img src="https://picsum.photos/id/90/300/500" onclick="setBg(this.src)">
-<img src="https://picsum.photos/id/100/300/500" onclick="setBg(this.src)">
-<img src="https://picsum.photos/id/110/300/500" onclick="setBg(this.src)">
-<img src="https://picsum.photos/id/120/300/500" onclick="setBg(this.src)">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop" class="active">
+
+<img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop">
 
 </div>
 
-<button class="btn" onclick="createReel()">
-إنشاء الريلز 🔥
+<button class="btn" onclick="generateAyah()">
+إنشاء الريلز 🎬
 </button>
 
 </div>
 
 <div class="preview" id="preview"
-style="background-image:url('https://picsum.photos/id/10/300/500')">
+style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop')">
 
 <div class="overlay">
 
-<div class="surah" id="surahText">
+<div class="surah" id="surahName">
 سورة الفاتحة
 </div>
 
-<div class="reader" id="readerText">
+<div class="reader" id="readerName">
 القارئ: مشاري العفاسي
 </div>
 
-<div class="ayah" id="ayahText">
+<div class="ayah" id="ayahBox">
 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
 </div>
 
@@ -449,112 +402,111 @@ style="background-image:url('https://picsum.photos/id/10/300/500')">
 </section>
 
 <footer>
-
-Designed & Developed By
-
-<div class="designer">
-HAITHAM MOSTAFA
-</div>
-
+Designed By HAITHAM STUDIO
 </footer>
 
 <script>
 
-function setBg(src){
+const surahs = [
 
-document.getElementById("preview").style.backgroundImage =
-"url('" + src + "')";
+"الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس",
+"هود","يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه",
+"الأنبياء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم",
+"لقمان","السجدة","الأحزاب","سبأ","فاطر","يس","الصافات","ص","الزمر","غافر",
+"فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق",
+"الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة",
+"الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج",
+"نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس",
+"التكوير","الإنفطار","المطففين","الإنشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد",
+"الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات",
+"القارعة","التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر",
+"المسد","الإخلاص","الفلق","الناس"
 
-}
+];
 
-async function createReel(){
+const surahSelect = document.getElementById("surahSelect");
 
-let surah =
-document.getElementById("surahSelect").value;
+surahs.forEach(name=>{
 
-let from =
-parseInt(document.getElementById("fromAyah").value);
+let option=document.createElement("option");
 
-let to =
-parseInt(document.getElementById("toAyah").value);
+option.textContent=name;
 
-let reader =
-document.getElementById("readerSelect").value;
+surahSelect.appendChild(option);
 
-document.getElementById("surahText").innerHTML =
+});
+
+const sampleAyat = {
+
+"الفاتحة":[
+"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+"الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+"الرَّحْمَٰنِ الرَّحِيمِ",
+"مَالِكِ يَوْمِ الدِّينِ",
+"إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
+],
+
+"الإخلاص":[
+"قُلْ هُوَ اللَّهُ أَحَدٌ",
+"اللَّهُ الصَّمَدُ",
+"لَمْ يَلِدْ وَلَمْ يُولَدْ",
+"وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ"
+]
+
+};
+
+document.querySelectorAll(".image-grid img").forEach(img=>{
+
+img.onclick=()=>{
+
+document.querySelectorAll(".image-grid img")
+.forEach(i=>i.classList.remove("active"));
+
+img.classList.add("active");
+
+document.getElementById("preview")
+.style.backgroundImage=`url(${img.src})`;
+
+};
+
+});
+
+function generateAyah(){
+
+const surah=surahSelect.value;
+
+const from=parseInt(document.getElementById("fromAyah").value);
+
+const to=parseInt(document.getElementById("toAyah").value);
+
+const reader=document.getElementById("readerSelect").value;
+
+document.getElementById("surahName").innerHTML=
 "سورة " + surah;
 
-document.getElementById("readerText").innerHTML =
+document.getElementById("readerName").innerHTML=
 "القارئ: " + reader;
 
-try{
+if(sampleAyat[surah]){
 
-const response =
-await fetch("ARQURAN.TXT");
+let result="";
 
-const text =
-await response.text();
+for(let i=from-1;i<to;i++){
 
-const lines =
-text.split("\\n");
+if(sampleAyat[surah][i]){
 
-let found = false;
-
-let ayat = [];
-
-for(let line of lines){
-
-if(line.includes("سورة " + surah)){
-
-found = true;
-
-continue;
-
-}
-
-if(found){
-
-if(line.includes("سورة") && !line.includes(surah)){
-
-break;
-
-}
-
-if(line.trim() !== ""){
-
-ayat.push(line);
+result += sampleAyat[surah][i] + " ";
 
 }
 
 }
 
-}
+document.getElementById("ayahBox").innerHTML=result;
 
-let result = "";
+}else{
 
-for(let i = from - 1; i < to; i++){
-
-if(ayat[i]){
-
-result += ayat[i] + " <br><br> ";
-
-}
-
-}
-
-if(result === ""){
-
-result = "لم يتم العثور على الآيات";
-
-}
-
-document.getElementById("ayahText").innerHTML =
-result;
-
-}catch(e){
-
-document.getElementById("ayahText").innerHTML =
-"تأكد من رفع ملف ARQURAN.TXT";
+document.getElementById("ayahBox").innerHTML=
+"ارفع ملف المصحف الكامل باسم ARQURAN.TXT ليعمل كل القرآن";
 
 }
 
