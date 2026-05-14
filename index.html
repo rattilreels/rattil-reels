@@ -1,519 +1,217 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+export default function LearningPlatform() { const courses = [ { title: "شرح أجهزة المساحة", teacher: "د. أحمد", lessons: 24, image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop", }, { title: "التسوية والشبكات", teacher: "د. محمد", lessons: 18, image: "https://images.unsplash.com/photo-1521790797524-b2497295b8a0?q=80&w=1200&auto=format&fit=crop", }, { title: "الخرائط الرقمية", teacher: "د. محمود", lessons: 12, image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop", }, ];
 
-<head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZT1GXKNH2"></script>
+return ( <div className="min-h-screen bg-zinc-950 text-white font-sans"> {/* Navbar */} <nav className="flex items-center justify-between px-6 py-5 border-b border-zinc-800 sticky top-0 bg-zinc-950/90 backdrop-blur z-50"> <div> <h1 className="text-2xl font-black tracking-wide">Survey Academy</h1> <p className="text-zinc-400 text-sm">منصة تعليمية متكاملة</p> </div>
 
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
+<div className="hidden md:flex items-center gap-6 text-sm font-medium">
+      <a href="#courses" className="hover:text-cyan-400 transition">الكورسات</a>
+      <a href="#features" className="hover:text-cyan-400 transition">المميزات</a>
+      <a href="#contact" className="hover:text-cyan-400 transition">تواصل</a>
+    </div>
 
-gtag('config', 'G-1ZT1GXKNH2');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <button className="bg-cyan-500 hover:bg-cyan-400 transition px-5 py-2 rounded-2xl font-bold text-black shadow-lg shadow-cyan-500/20">
+      تسجيل الدخول
+    </button>
+  </nav>
 
-<title>ورتّل ريلز | HAITHAM STUDIO</title>
+  {/* Hero */}
+  <section className="relative overflow-hidden">
+    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent blur-3xl" />
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <div className="relative max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-14 items-center">
+      <div>
+        <span className="bg-cyan-500/20 text-cyan-300 px-4 py-2 rounded-full text-sm border border-cyan-500/30">
+          منصة تعليمية حديثة لمعهد مساحة أسيوط
+        </span>
 
-<style>
+        <h2 className="text-5xl md:text-6xl font-black leading-tight mt-6">
+          ابدأ رحلتك في
+          <span className="text-cyan-400"> علوم المساحة </span>
+          باحتراف
+        </h2>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Cairo',sans-serif;
-}
+        <p className="text-zinc-400 text-lg mt-6 leading-8">
+          منصة متكاملة لشرح المحاضرات ورفع الفيديوهات والملفات والاختبارات
+          للطلاب بطريقة عصرية وسهلة.
+        </p>
 
-body{
-background:#020617;
-color:white;
-overflow-x:hidden;
-}
+        <div className="flex gap-4 mt-8 flex-wrap">
+          <button className="bg-cyan-500 hover:bg-cyan-400 text-black px-7 py-3 rounded-2xl font-bold text-lg shadow-xl shadow-cyan-500/30 transition">
+            ابدأ الآن
+          </button>
 
-body::before{
-content:'';
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at top,#2563eb33,transparent 40%),
-radial-gradient(circle at bottom,#7c3aed33,transparent 40%);
-z-index:-1;
-}
+          <button className="border border-zinc-700 hover:border-cyan-400 hover:text-cyan-400 px-7 py-3 rounded-2xl font-bold text-lg transition">
+            مشاهدة المنصة
+          </button>
+        </div>
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 40px;
-background:#020617;
-border-bottom:1px solid rgba(255,255,255,.08);
-}
+        <div className="grid grid-cols-3 gap-4 mt-10">
+          <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-5 text-center">
+            <h3 className="text-3xl font-black text-cyan-400">1200+</h3>
+            <p className="text-zinc-400 mt-2">طالب</p>
+          </div>
 
-.logo{
-font-size:40px;
-font-weight:900;
-background:linear-gradient(45deg,#38bdf8,#8b5cf6);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+          <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-5 text-center">
+            <h3 className="text-3xl font-black text-cyan-400">80+</h3>
+            <p className="text-zinc-400 mt-2">محاضرة</p>
+          </div>
 
-.hero{
-text-align:center;
-padding:40px 20px;
-}
+          <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-5 text-center">
+            <h3 className="text-3xl font-black text-cyan-400">24/7</h3>
+            <p className="text-zinc-400 mt-2">دعم</p>
+          </div>
+        </div>
+      </div>
 
-.hero h1{
-font-size:60px;
-margin-bottom:15px;
-}
+      <div className="relative">
+        <img
+          src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop"
+          alt="platform"
+          className="rounded-[40px] border border-zinc-800 shadow-2xl"
+        />
 
-.hero span{
-color:#38bdf8;
-}
+        <div className="absolute -bottom-8 -left-4 bg-zinc-900 border border-zinc-800 p-5 rounded-3xl shadow-2xl">
+          <p className="text-zinc-400 text-sm">عدد الطلاب المتصلين الآن</p>
+          <h3 className="text-4xl font-black text-cyan-400 mt-1">326</h3>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.hero p{
-font-size:22px;
-color:#cbd5e1;
-}
+  {/* Features */}
+  <section id="features" className="max-w-7xl mx-auto px-6 py-20">
+    <div className="text-center mb-14">
+      <h2 className="text-4xl font-black">مميزات المنصة</h2>
+      <p className="text-zinc-400 mt-4 text-lg">
+        كل اللي الدكتور والطلاب محتاجينه في مكان واحد.
+      </p>
+    </div>
 
-.container{
-display:flex;
-justify-content:center;
-gap:40px;
-padding:20px;
-flex-wrap:wrap;
-}
+    <div className="grid md:grid-cols-3 gap-6">
+      {[
+        {
+          title: "رفع فيديوهات المحاضرات",
+          desc: "إضافة محاضرات بجودة عالية مع تشغيل سريع ومنظم.",
+        },
+        {
+          title: "اختبارات وامتحانات",
+          desc: "إمكانية إنشاء اختبارات وتصحيحها تلقائيًا.",
+        },
+        {
+          title: "رفع ملفات PDF",
+          desc: "إضافة ملازم وخرائط وملفات للطلاب بسهولة.",
+        },
+        {
+          title: "شات مع الطلاب",
+          desc: "تواصل مباشر بين الدكتور والطلاب داخل المنصة.",
+        },
+        {
+          title: "لوحة تحكم احترافية",
+          desc: "متابعة الطلاب والكورسات والإحصائيات بسهولة.",
+        },
+        {
+          title: "تصميم سريع ومتجاوب",
+          desc: "يعمل على الموبايل والتابلت والكمبيوتر بسلاسة.",
+        },
+      ].map((item, index) => (
+        <div
+          key={index}
+          className="bg-zinc-900 border border-zinc-800 rounded-[30px] p-7 hover:border-cyan-500/50 hover:-translate-y-1 transition duration-300"
+        >
+          <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-2xl mb-5">
+            ⚡
+          </div>
 
-.panel{
-width:470px;
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
-padding:30px;
-border-radius:30px;
-backdrop-filter:blur(15px);
-}
+          <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
+          <p className="text-zinc-400 leading-7">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
 
-.panel h2{
-font-size:32px;
-margin-bottom:20px;
-color:#38bdf8;
-}
+  {/* Courses */}
+  <section id="courses" className="bg-zinc-900/50 py-20 border-y border-zinc-800">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="flex items-center justify-between mb-12 flex-wrap gap-4">
+        <div>
+          <h2 className="text-4xl font-black">الكورسات المتاحة</h2>
+          <p className="text-zinc-400 mt-3">
+            أحدث الكورسات الخاصة بطلاب معهد مساحة أسيوط.
+          </p>
+        </div>
 
-label{
-display:block;
-margin-top:20px;
-margin-bottom:8px;
-font-size:18px;
-}
+        <button className="bg-cyan-500 hover:bg-cyan-400 text-black px-6 py-3 rounded-2xl font-bold transition">
+          عرض الكل
+        </button>
+      </div>
 
-select,
-input{
-width:100%;
-padding:16px;
-background:#0f172a;
-border:none;
-border-radius:16px;
-color:white;
-font-size:17px;
-outline:none;
-}
+      <div className="grid md:grid-cols-3 gap-7">
+        {courses.map((course, index) => (
+          <div
+            key={index}
+            className="bg-zinc-950 border border-zinc-800 rounded-[35px] overflow-hidden hover:border-cyan-500/40 transition"
+          >
+            <img
+              src={course.image}
+              alt={course.title}
+              className="h-56 w-full object-cover"
+            />
 
-.image-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-margin-top:15px;
-}
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <span className="bg-cyan-500/10 text-cyan-300 px-3 py-1 rounded-full text-sm">
+                  جديد
+                </span>
 
-.image-grid img{
-width:100%;
-height:110px;
-object-fit:cover;
-border-radius:15px;
-cursor:pointer;
-border:3px solid transparent;
-transition:.3s;
-}
+                <span className="text-zinc-400 text-sm">
+                  {course.lessons} محاضرة
+                </span>
+              </div>
 
-.image-grid img:hover{
-transform:scale(1.03);
-}
+              <h3 className="text-2xl font-bold mb-2">{course.title}</h3>
+              <p className="text-zinc-400 mb-6">{course.teacher}</p>
 
-.image-grid img.active{
-border-color:#38bdf8;
-}
+              <button className="w-full bg-cyan-500 hover:bg-cyan-400 text-black py-3 rounded-2xl font-bold transition">
+                الدخول للكورس
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-.btn{
-width:100%;
-padding:18px;
-margin-top:25px;
-border:none;
-border-radius:18px;
-font-size:22px;
-font-weight:bold;
-cursor:pointer;
-background:linear-gradient(45deg,#38bdf8,#8b5cf6);
-color:white;
-transition:.3s;
-}
+  {/* CTA */}
+  <section className="max-w-6xl mx-auto px-6 py-24">
+    <div className="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-[40px] p-10 md:p-16 text-center text-black shadow-2xl">
+      <h2 className="text-4xl md:text-5xl font-black leading-tight">
+        جاهز تبني أقوى منصة تعليمية؟
+      </h2>
 
-.btn:hover{
-transform:scale(1.02);
-}
+      <p className="mt-6 text-lg max-w-3xl mx-auto leading-8">
+        منصة حديثة تساعد الدكتور في تنظيم المحاضرات والطلاب في متابعة
+        الدراسة بشكل احترافي.
+      </p>
 
-.preview{
-width:360px;
-height:640px;
-border-radius:35px;
-overflow:hidden;
-position:relative;
-background-size:cover;
-background-position:center;
-box-shadow:0 0 40px rgba(56,189,248,.2);
-}
+      <div className="flex justify-center gap-4 mt-10 flex-wrap">
+        <button className="bg-black text-white px-8 py-4 rounded-2xl font-bold text-lg hover:scale-105 transition">
+          إنشاء حساب
+        </button>
 
-.overlay{
-position:absolute;
-inset:0;
-background:linear-gradient(to top,
-rgba(0,0,0,.95),
-rgba(0,0,0,.1));
-display:flex;
-flex-direction:column;
-justify-content:end;
-align-items:center;
-padding:35px;
-text-align:center;
-}
+        <button className="bg-white/20 backdrop-blur px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/30 transition">
+          تواصل معنا
+        </button>
+      </div>
+    </div>
+  </section>
 
-.surah{
-font-size:35px;
-font-weight:900;
-margin-bottom:18px;
-background:rgba(0,0,0,.45);
-padding:10px 25px;
-border-radius:20px;
-}
-
-.reader{
-font-size:20px;
-margin-bottom:25px;
-background:rgba(139,92,246,.35);
-padding:10px 20px;
-border-radius:18px;
-}
-
-.ayah{
-font-size:32px;
-line-height:2;
-font-weight:900;
-text-shadow:0 0 10px black;
-}
-
-footer{
-text-align:center;
-padding:40px;
-font-size:25px;
-font-weight:900;
-background:linear-gradient(45deg,#38bdf8,#8b5cf6);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-@media(max-width:900px){
-
-.hero h1{
-font-size:42px;
-}
-
-.panel{
-width:100%;
-}
-
-.preview{
-width:100%;
-max-width:360px;
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<nav>
-
-<div class="logo">
-HAITHAM STUDIO
+  {/* Footer */}
+  <footer
+    id="contact"
+    className="border-t border-zinc-800 py-10 text-center text-zinc-500"
+  >
+    <h3 className="text-2xl font-black text-white mb-3">Survey Academy</h3>
+    <p>جميع الحقوق محفوظة © 2026</p>
+  </footer>
 </div>
 
-<div>
-ورتّل ريلز 🎬
-</div>
-
-</nav>
-
-<section class="hero">
-
-<h1>
-أنشئ <span>ريلز قرآني</span> احترافي
-</h1>
-
-<p>
-اختر السورة والقارئ والآيات والخلفية وشاهد النتيجة فورًا
-</p>
-
-</section>
-
-<section class="container">
-
-<div class="panel">
-
-<h2>
-إعدادات الريلز ✨
-</h2>
-
-<label>
-اختر السورة
-</label>
-
-<select id="surahSelect"></select>
-
-<label>
-من الآية
-</label>
-
-<input type="number" id="fromAyah" value="1">
-
-<label>
-إلى الآية
-</label>
-
-<input type="number" id="toAyah" value="5">
-
-<label>
-اختر القارئ
-</label>
-
-<select id="readerSelect">
-
-<option>مشاري العفاسي</option>
-<option>ماهر المعيقلي</option>
-<option>ياسر الدوسري</option>
-<option>عبد الباسط عبد الصمد</option>
-<option>أحمد العجمي</option>
-<option>سعد الغامدي</option>
-<option>فارس عباد</option>
-<option>ناصر القطامي</option>
-<option>محمد صديق المنشاوي</option>
-<option>محمود خليل الحصري</option>
-<option>إدريس أبكر</option>
-<option>أبو بكر الشاطري</option>
-<option>خالد الجليل</option>
-<option>هزاع البلوشي</option>
-<option>عبد الرحمن السديس</option>
-<option>سعود الشريم</option>
-<option>صلاح البدير</option>
-<option>بندر بليلة</option>
-<option>يحيى حوا</option>
-<option>وليد الدليمي</option>
-<option>علي جابر</option>
-<option>حسين آل الشيخ</option>
-<option>أكرم العلاقمي</option>
-<option>توفيق الصايغ</option>
-<option>محمد اللحيدان</option>
-<option>عبد الودود حنيف</option>
-<option>عبد الله بصفر</option>
-<option>خالد القحطاني</option>
-<option>محمد جبريل</option>
-<option>أحمد النفيس</option>
-<option>إسلام صبحي</option>
-<option>رامي محمد</option>
-<option>عبد العزيز الزهراني</option>
-<option>حسن صالح</option>
-<option>حسنين مخلوف</option>
-<option>عمر القزابري</option>
-<option>فتحي الصافي</option>
-<option>رشيد بلعالية</option>
-<option>عبد الله الموسى</option>
-<option>عبد الرشيد صوفي</option>
-
-</select>
-
-<label>
-اختر صورة الخلفية
-</label>
-
-<div class="image-grid">
-
-<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop" class="active">
-
-<img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200&auto=format&fit=crop">
-
-<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop">
-
-<img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=1200&auto=format&fit=crop">
-
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
-
-<img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200&auto=format&fit=crop">
-
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop">
-
-<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop">
-
-<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop">
-
-</div>
-
-<button class="btn" onclick="generateAyah()">
-إنشاء الريلز 🎬
-</button>
-
-</div>
-
-<div class="preview" id="preview"
-style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop')">
-
-<div class="overlay">
-
-<div class="surah" id="surahName">
-سورة الفاتحة
-</div>
-
-<div class="reader" id="readerName">
-القارئ: مشاري العفاسي
-</div>
-
-<div class="ayah" id="ayahBox">
-بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-Designed By HAITHAM STUDIO
-</footer>
-
-<script>
-
-const surahs = [
-
-"الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس",
-"هود","يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه",
-"الأنبياء","الحج","المؤمنون","النور","الفرقان","الشعراء","النمل","القصص","العنكبوت","الروم",
-"لقمان","السجدة","الأحزاب","سبأ","فاطر","يس","الصافات","ص","الزمر","غافر",
-"فصلت","الشورى","الزخرف","الدخان","الجاثية","الأحقاف","محمد","الفتح","الحجرات","ق",
-"الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة","الحشر","الممتحنة",
-"الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة","المعارج",
-"نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس",
-"التكوير","الإنفطار","المطففين","الإنشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد",
-"الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات",
-"القارعة","التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر",
-"المسد","الإخلاص","الفلق","الناس"
-
-];
-
-const surahSelect = document.getElementById("surahSelect");
-
-surahs.forEach(name=>{
-
-let option=document.createElement("option");
-
-option.textContent=name;
-
-surahSelect.appendChild(option);
-
-});
-
-const sampleAyat = {
-
-"الفاتحة":[
-"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-"الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
-"الرَّحْمَٰنِ الرَّحِيمِ",
-"مَالِكِ يَوْمِ الدِّينِ",
-"إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
-],
-
-"الإخلاص":[
-"قُلْ هُوَ اللَّهُ أَحَدٌ",
-"اللَّهُ الصَّمَدُ",
-"لَمْ يَلِدْ وَلَمْ يُولَدْ",
-"وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ"
-]
-
-};
-
-document.querySelectorAll(".image-grid img").forEach(img=>{
-
-img.onclick=()=>{
-
-document.querySelectorAll(".image-grid img")
-.forEach(i=>i.classList.remove("active"));
-
-img.classList.add("active");
-
-document.getElementById("preview")
-.style.backgroundImage=`url(${img.src})`;
-
-};
-
-});
-
-function generateAyah(){
-
-const surah=surahSelect.value;
-
-const from=parseInt(document.getElementById("fromAyah").value);
-
-const to=parseInt(document.getElementById("toAyah").value);
-
-const reader=document.getElementById("readerSelect").value;
-
-document.getElementById("surahName").innerHTML=
-"سورة " + surah;
-
-document.getElementById("readerName").innerHTML=
-"القارئ: " + reader;
-
-if(sampleAyat[surah]){
-
-let result="";
-
-for(let i=from-1;i<to;i++){
-
-if(sampleAyat[surah][i]){
-
-result += sampleAyat[surah][i] + " ";
-
-}
-
-}
-
-document.getElementById("ayahBox").innerHTML=result;
-
-}else{
-
-document.getElementById("ayahBox").innerHTML=
-"ارفع ملف المصحف الكامل باسم ARQURAN.TXT ليعمل كل القرآن";
-
-}
-
-}
-
-</script>
-
-</body>
-
-</html>
+); }
