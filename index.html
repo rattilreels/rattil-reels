@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZT1GXKNH2"></script>
@@ -10,664 +11,752 @@ gtag('js', new Date());
 
 gtag('config', 'G-1ZT1GXKNH2');
 </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr Ahmed Platform | Asyut Survey</title>  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Cairo',sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr Ahmed Academy</title>
 
-    body{
-      background:#050816;
-      color:white;
-      overflow-x:hidden;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
-    body::before{
-      content:'';
-      position:fixed;
-      width:600px;
-      height:600px;
-      background:#00e1ff22;
-      filter:blur(120px);
-      top:-200px;
-      right:-200px;
-      z-index:-1;
-    }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+scroll-behavior:smooth;
+}
 
-    body::after{
-      content:'';
-      position:fixed;
-      width:500px;
-      height:500px;
-      background:#0066ff22;
-      filter:blur(120px);
-      bottom:-200px;
-      left:-200px;
-      z-index:-1;
-    }
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+transition:.4s;
+}
 
-    nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px 7%;
-      backdrop-filter:blur(20px);
-      background:#ffffff08;
-      border-bottom:1px solid #ffffff12;
-      position:sticky;
-      top:0;
-      z-index:999;
-    }
+body.light-mode{
+background:#f3f6ff;
+color:#111;
+}
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:15px;
-    }
+body::before{
+content:'';
+position:fixed;
+width:600px;
+height:600px;
+background:#00e1ff22;
+filter:blur(120px);
+top:-200px;
+right:-200px;
+z-index:-1;
+}
 
-    .logo-box{
-      width:60px;
-      height:60px;
-      border-radius:20px;
-      background:linear-gradient(135deg,#00e1ff,#0066ff);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      font-size:28px;
-      font-weight:900;
-      color:black;
-      box-shadow:0 0 30px #00e1ff66;
-    }
+body::after{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#0066ff22;
+filter:blur(120px);
+bottom:-200px;
+left:-200px;
+z-index:-1;
+}
 
-    .logo h1{
-      font-size:30px;
-      font-weight:900;
-    }
+.loader{
+position:fixed;
+inset:0;
+background:#050816;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999999;
+}
 
-    .logo p{
-      color:#8edfff;
-    }
+.spinner{
+width:90px;
+height:90px;
+border:8px solid #ffffff22;
+border-top:8px solid #00e1ff;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
 
-    .links{
-      display:flex;
-      gap:30px;
-    }
+@keyframes spin{
+100%{
+transform:rotate(360deg)
+}
+}
 
-    .links a{
-      text-decoration:none;
-      color:white;
-      font-weight:700;
-      transition:.3s;
-    }
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 7%;
+backdrop-filter:blur(20px);
+background:#ffffff08;
+border-bottom:1px solid #ffffff12;
+position:sticky;
+top:0;
+z-index:999;
+}
 
-    .links a:hover{
-      color:#00e1ff;
-    }
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
 
-    .btn{
-      background:linear-gradient(135deg,#00e1ff,#0066ff);
-      color:black;
-      padding:14px 28px;
-      border:none;
-      border-radius:18px;
-      font-weight:900;
-      cursor:pointer;
-      transition:.3s;
-      box-shadow:0 0 30px #00e1ff44;
-    }
+.logo-box{
+width:65px;
+height:65px;
+border-radius:22px;
+background:linear-gradient(135deg,#00e1ff,#0066ff);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+font-weight:900;
+color:black;
+box-shadow:0 0 40px #00e1ff66;
+}
 
-    .btn:hover{
-      transform:translateY(-4px) scale(1.03);
-    }
+.links{
+display:flex;
+gap:30px;
+}
 
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:80px 7%;
-      gap:60px;
-      flex-wrap:wrap;
-    }
+.links a{
+text-decoration:none;
+color:white;
+font-weight:800;
+transition:.3s;
+}
 
-    .hero-text{
-      flex:1;
-      min-width:320px;
-    }
+.links a:hover{
+color:#00e1ff;
+}
 
-    .tag{
-      display:inline-block;
-      padding:12px 22px;
-      border-radius:999px;
-      background:#00e1ff15;
-      border:1px solid #00e1ff33;
-      color:#8edfff;
-      margin-bottom:25px;
-      font-weight:700;
-    }
+.btn{
+padding:14px 30px;
+border:none;
+border-radius:18px;
+background:linear-gradient(135deg,#00e1ff,#0066ff);
+font-weight:900;
+cursor:pointer;
+transition:.4s;
+box-shadow:0 0 30px #00e1ff44;
+}
 
-    .hero h2{
-      font-size:72px;
-      line-height:1.2;
-      font-weight:900;
-    }
+.btn:hover{
+transform:translateY(-5px) scale(1.03);
+}
 
-    .hero h2 span{
-      background:linear-gradient(135deg,#00e1ff,#0066ff);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+.outline-btn{
+padding:14px 30px;
+border-radius:18px;
+background:transparent;
+border:1px solid #ffffff22;
+color:white;
+font-weight:800;
+cursor:pointer;
+transition:.3s;
+}
 
-    .hero p{
-      margin-top:25px;
-      color:#c6c6c6;
-      line-height:2;
-      font-size:20px;
-      max-width:700px;
-    }
+.outline-btn:hover{
+border-color:#00e1ff;
+color:#00e1ff;
+}
 
-    .hero-buttons{
-      margin-top:40px;
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-    }
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:80px 7%;
+gap:60px;
+flex-wrap:wrap;
+}
 
-    .outline-btn{
-      padding:14px 28px;
-      border-radius:18px;
-      border:1px solid #ffffff22;
-      background:transparent;
-      color:white;
-      font-weight:800;
-      cursor:pointer;
-      transition:.3s;
-    }
+.hero-text{
+flex:1;
+min-width:320px;
+}
 
-    .outline-btn:hover{
-      border-color:#00e1ff;
-      color:#00e1ff;
-    }
+.tag{
+display:inline-block;
+padding:12px 22px;
+border-radius:999px;
+background:#00e1ff15;
+border:1px solid #00e1ff33;
+color:#8edfff;
+margin-bottom:25px;
+font-weight:700;
+}
 
-    .hero-image{
-      flex:1;
-      min-width:320px;
-      position:relative;
-    }
+.hero h2{
+font-size:72px;
+line-height:1.2;
+font-weight:900;
+}
 
-    .hero-image img{
-      width:100%;
-      border-radius:40px;
-      border:1px solid #ffffff12;
-      box-shadow:0 0 50px #00000088;
-    }
+.hero h2 span{
+background:linear-gradient(135deg,#00e1ff,#0066ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-    .floating-card{
-      position:absolute;
-      bottom:-25px;
-      left:30px;
-      background:#0d1224cc;
-      border:1px solid #ffffff12;
-      backdrop-filter:blur(20px);
-      padding:25px;
-      border-radius:25px;
-    }
+.hero p{
+margin-top:25px;
+color:#cfcfcf;
+line-height:2;
+font-size:20px;
+max-width:700px;
+}
 
-    .floating-card h3{
-      font-size:50px;
-      color:#00e1ff;
-    }
+.hero-buttons{
+margin-top:40px;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
 
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:25px;
-      padding:0 7% 100px;
-    }
+.hero-image{
+flex:1;
+min-width:320px;
+position:relative;
+}
 
-    .stat-box{
-      background:#ffffff08;
-      border:1px solid #ffffff10;
-      padding:35px;
-      border-radius:30px;
-      text-align:center;
-      transition:.3s;
-      backdrop-filter:blur(15px);
-    }
+.hero-image img{
+width:100%;
+border-radius:40px;
+box-shadow:0 0 50px #00000088;
+}
 
-    .stat-box:hover{
-      transform:translateY(-10px);
-      border-color:#00e1ff44;
-    }
+.floating-card{
+position:absolute;
+bottom:-25px;
+left:30px;
+background:#0d1224cc;
+padding:25px;
+border-radius:25px;
+backdrop-filter:blur(20px);
+border:1px solid #ffffff12;
+}
 
-    .stat-box h3{
-      font-size:45px;
-      color:#00e1ff;
-      margin-bottom:10px;
-    }
+.floating-card h3{
+font-size:50px;
+color:#00e1ff;
+}
 
-    .section-title{
-      text-align:center;
-      font-size:55px;
-      margin-bottom:60px;
-      font-weight:900;
-    }
+.stats,
+.dashboard,
+.features-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+padding:100px 7%;
+}
 
-    .features,
-    .courses{
-      padding:100px 7%;
-    }
+.stat-box,
+.feature,
+.dash-card,
+.auth-box{
+background:#ffffff08;
+padding:35px;
+border-radius:30px;
+backdrop-filter:blur(20px);
+border:1px solid #ffffff12;
+transition:.4s;
+}
 
-    .features-grid,
-    .courses-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:30px;
-    }
+.stat-box:hover,
+.feature:hover,
+.dash-card:hover{
+transform:translateY(-10px);
+border-color:#00e1ff55;
+}
 
-    .feature,
-    .course{
-      background:#ffffff08;
-      border:1px solid #ffffff12;
-      border-radius:35px;
-      overflow:hidden;
-      transition:.4s;
-      backdrop-filter:blur(18px);
-    }
+.stat-box h3,
+.icon{
+color:#00e1ff;
+}
 
-    .feature:hover,
-    .course:hover{
-      transform:translateY(-12px);
-      border-color:#00e1ff44;
-    }
+.icon{
+font-size:40px;
+margin-bottom:20px;
+}
 
-    .feature{
-      padding:40px;
-    }
+.section-title{
+text-align:center;
+font-size:55px;
+font-weight:900;
+margin-top:40px;
+}
 
-    .icon{
-      width:75px;
-      height:75px;
-      border-radius:25px;
-      background:linear-gradient(135deg,#00e1ff,#0066ff);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:35px;
-      margin-bottom:25px;
-      color:black;
-      box-shadow:0 0 30px #00e1ff55;
-    }
+.auth-section{
+padding:100px 7%;
+display:flex;
+justify-content:center;
+}
 
-    .feature h3{
-      font-size:30px;
-      margin-bottom:15px;
-    }
+.auth-box{
+width:100%;
+max-width:500px;
+}
 
-    .feature p{
-      color:#cccccc;
-      line-height:2;
-    }
+.auth-box h2{
+margin-bottom:30px;
+font-size:40px;
+}
 
-    .course img{
-      width:100%;
-      height:260px;
-      object-fit:cover;
-    }
+.auth-box input{
+width:100%;
+padding:18px;
+margin-bottom:20px;
+border:none;
+border-radius:18px;
+background:#ffffff10;
+color:white;
+font-size:18px;
+}
 
-    .course-content{
-      padding:30px;
-    }
+.theme-btn,
+.menu-btn{
+background:none;
+border:none;
+color:white;
+font-size:30px;
+cursor:pointer;
+}
 
-    .course-content h3{
-      font-size:32px;
-      margin-bottom:10px;
-    }
+.mobile-menu{
+position:fixed;
+top:0;
+right:-100%;
+width:280px;
+height:100vh;
+background:#081120ee;
+backdrop-filter:blur(20px);
+display:flex;
+flex-direction:column;
+padding:120px 30px;
+gap:25px;
+transition:.4s;
+z-index:9999;
+}
 
-    .course-content p{
-      color:#c7c7c7;
-      margin-bottom:25px;
-    }
+.mobile-menu.active{
+right:0;
+}
 
-    footer{
-      padding:60px 20px;
-      text-align:center;
-      border-top:1px solid #ffffff12;
-      color:#aaa;
-    }
+.mobile-menu a{
+color:white;
+text-decoration:none;
+font-size:22px;
+font-weight:800;
+}
 
-    @media(max-width:900px){
-      .hero h2{
-        font-size:50px;
-      }
+footer{
+padding:70px 20px;
+text-align:center;
+border-top:1px solid #ffffff12;
+margin-top:80px;
+}
 
-      .links{
-        display:none;
-      }
-    }
-  </style></head>
-<body>  <nav>
-    <div class="logo">
-      <div class="logo-box">A</div><div>
-    <h1>Dr Ahmed Academy</h1>
-    <p>منصة تعليمية احترافية لطلاب المساحة</p>
-  </div>
+.socials{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.socials a{
+text-decoration:none;
+color:#00e1ff;
+font-weight:800;
+}
+
+@media(max-width:900px){
+.hero h2{
+font-size:48px;
+}
+
+.links{
+display:none;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader">
+<div class="spinner"></div>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="#">الرئيسية</a>
+<a href="#">الكورسات</a>
+<a href="#">المميزات</a>
+<a href="#">تواصل</a>
+</div>
+
+<nav>
+<div class="logo">
+<div class="logo-box">A</div>
+<div>
+<h1>Dr Ahmed Academy</h1>
+<p>منصة تعليمية لطلاب المساحة</p>
+</div>
 </div>
 
 <div class="links">
-  <a href="#">الرئيسية</a>
-  <a href="#">الكورسات</a>
-  <a href="#">المميزات</a>
-  <a href="#">تواصل</a>
+<a href="#">الرئيسية</a>
+<a href="#">الكورسات</a>
+<a href="#">المميزات</a>
+<a href="#">تواصل</a>
 </div>
 
+<div style="display:flex;align-items:center;gap:15px;">
+<button class="theme-btn" onclick="toggleTheme()">🌙</button>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
 <button class="btn">دخول الطلاب</button>
+</div>
+</nav>
 
-  </nav>  <section class="hero">
-    <video autoplay muted loop playsinline style="position:absolute;width:100%;height:100%;object-fit:cover;opacity:.12;top:0;left:0;z-index:-1;">
-      <source src="https://cdn.coverr.co/videos/coverr-engineers-working-on-site-1560917277730?download=1080p" type="video/mp4">
-    </video>
-    <div class="hero-text">
-      <span class="tag">#1 منصة تعليمية لطلاب معهد مساحة أسيوط</span><h2>
-    تعلم <span>المساحة الحديثة</span><br> مع أقوى منصة تعليمية
-  </h2>
+<section class="hero">
+<div class="hero-text">
+<div class="tag">#1 منصة تعليمية لطلاب معهد مساحة أسيوط</div>
 
-  <p>
-    كورسات احترافية - فيديوهات بجودة عالية - اختبارات ذكية - ملفات PDF - متابعة الطلاب بالكامل داخل منصة حديثة بتصميم عالمي.
-  </p>
+<h2>
+تعلم <span>المساحة الحديثة</span><br>
+مع أقوى منصة تعليمية
+</h2>
 
-  <div class="hero-buttons">
-    <button class="btn">ابدأ الآن</button>
-    <button class="outline-btn">استكشاف المنصة</button>
-  </div>
+<p>
+كورسات احترافية - اختبارات ذكية - ملفات PDF - فيديوهات عالية الجودة - متابعة كاملة للطلاب.
+</p>
+
+<div class="hero-buttons">
+<button class="btn">ابدأ الآن</button>
+<button class="outline-btn">استكشاف المنصة</button>
+</div>
 </div>
 
 <div class="hero-image">
-  <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1400&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1400&auto=format&fit=crop">
 
-  <div class="floating-card">
-    <p>الطلاب المتصلين الآن</p>
-    <h3>632</h3>
-  </div>
+<div class="floating-card">
+<p>الطلاب المتصلين الآن</p>
+<h3>632</h3>
 </div>
+</div>
+</section>
 
-  </section>  <section class="stats">
-    <div class="stat-box">
-      <h3>+5000</h3>
-      <p>طالب</p>
-    </div><div class="stat-box">
-  <h3>120</h3>
-  <p>محاضرة</p>
+<section class="stats">
+<div class="stat-box">
+<h3>+5000</h3>
+<p>طالب</p>
 </div>
 
 <div class="stat-box">
-  <h3>24/7</h3>
-  <p>دعم مباشر</p>
+<h3>120</h3>
+<p>محاضرة</p>
 </div>
 
-  </section>  <section class="features">
-    <h2 class="section-title">أنظمة الأمان والحماية</h2><div class="features-grid" style="margin-bottom:80px;">
+<div class="stat-box">
+<h3>24/7</h3>
+<p>دعم مباشر</p>
+</div>
+</section>
 
-  <div class="feature">
-    <div class="icon">🔐</div>
-    <h3>حسابات آمنة بالكامل</h3>
-    <p>
-      كل طالب يمتلك حساب خاص بإيميل أو رقم موبايل وكلمة سر مشفرة لحماية البيانات.
-    </p>
-  </div>
+<h2 class="section-title">الخطة الدراسية الكاملة</h2>
 
-  <div class="feature">
-    <div class="icon">🛡️</div>
-    <h3>منع تسريب الكورسات</h3>
-    <p>
-      حماية قوية تمنع مشاركة الحسابات أو فتح نفس الحساب على عدة أجهزة.
-    </p>
-  </div>
+<section class="features-grid" style="padding-top:40px;">
 
-  <div class="feature">
-    <div class="icon">📲</div>
-    <h3>تأكيد الحساب OTP</h3>
-    <p>
-      تأكيد الحساب برسالة أو كود OTP لزيادة مستوى الأمان داخل المنصة.
-    </p>
-  </div>
+<div class="feature" style="border:1px solid #00e1ff33;">
+<h2 style="margin-bottom:25px;color:#00e1ff;">السنة الأولى</h2>
 
-  <div class="feature">
-    <div class="icon">🔑</div>
-    <h3>استرجاع كلمة السر</h3>
-    <p>
-      إمكانية استرجاع كلمة المرور بالإيميل أو رقم الموبايل بسهولة.
-    </p>
-  </div>
+<h3 style="margin-bottom:15px;">الترم الأول</h3>
+<ul style="line-height:2.2;color:#ccc;padding-right:20px;">
+<li>مساحة مستوية</li>
+<li>تطبيقات المساحة المستوية</li>
+<li>سلامة مهنية</li>
+<li>رسم هندسي</li>
+<li>أجهزة مساحية</li>
+<li>رياضيات</li>
+<li>تكنولوجيا ومعلومات</li>
+<li>إنجليزي</li>
+</ul>
 
-  <div class="feature">
-    <div class="icon">👨‍🏫</div>
-    <h3>لوحات تحكم متكاملة</h3>
-    <p>
-      لوحة تحكم خاصة بالطلاب والدكاترة والإدارة لإدارة المنصة بشكل احترافي.
-    </p>
-  </div>
-
-  <div class="feature">
-    <div class="icon">⚡</div>
-    <h3>سيرفرات قوية وسريعة</h3>
-    <p>
-      المنصة تتحمل ضغط أعداد كبيرة من الطلاب مع سرعة وأداء عالي.
-    </p>
-  </div>
-
+<h3 style="margin:30px 0 15px;color:#00e1ff;">الترم الثاني</h3>
+<ul style="line-height:2.2;color:#ccc;padding-right:20px;">
+<li>مساحة جيوديسية</li>
+<li>تطبيقات المساحة الجيوديسية</li>
+<li>كميات ومواصفات</li>
+<li>تكنولوجيا ومعلومات متقدمة</li>
+<li>تربة ومحاصيل</li>
+<li>قوانين وتشريعات</li>
+<li>رسم تخصصي</li>
+<li>نظرية أخطاء</li>
+</ul>
 </div>
 
-<h2 class="section-title">أنظمة الدفع الإلكتروني</h2>
+<div class="feature" style="border:1px solid #0066ff44;">
+<h2 style="margin-bottom:25px;color:#00e1ff;">السنة الثانية</h2>
 
-<div class="features-grid" style="margin-bottom:100px;">
+<h3 style="margin-bottom:15px;">الترم الأول</h3>
+<ul style="line-height:2.2;color:#ccc;padding-right:20px;">
+<li>مساحة أنفاق</li>
+<li>مساحة تصويرية</li>
+<li>تطبيقات مساحة تصويرية</li>
+<li>مساحة طبوغرافية</li>
+<li>تطبيقات مساحة طبوغرافية</li>
+<li>جيولوجيا</li>
+<li>رسم بالحاسب الآلي (أوتوكاد)</li>
+<li>إسقاط خرائط</li>
+</ul>
 
-  <div class="feature">
-    <div class="icon">💳</div>
-    <h3>الدفع بفوري</h3>
-    <p>
-      دعم الدفع من خلال فوري لتسهيل الاشتراك في الكورسات.
-    </p>
-  </div>
-
-  <div class="feature">
-    <div class="icon">📱</div>
-    <h3>فودافون كاش</h3>
-    <p>
-      إمكانية الدفع السريع والآمن عبر Vodafone Cash.
-    </p>
-  </div>
-
-  <div class="feature">
-    <div class="icon">🏦</div>
-    <h3>إنستاباي</h3>
-    <p>
-      دعم التحويل المباشر من خلال InstaPay بسهولة.
-    </p>
-  </div>
-
-  <div class="feature">
-    <div class="icon">💠</div>
-    <h3>Visa & Mastercard</h3>
-    <p>
-      إمكانية إضافة بطاقات الدفع الإلكتروني مستقبلاً.
-    </p>
-  </div>
-
-  <div class="feature">
-    <div class="icon">🚀</div>
-    <h3>تفعيل تلقائي للكورسات</h3>
-    <p>
-      بمجرد الدفع يتم فتح الكورس تلقائيًا للطالب بشكل آمن وسريع.
-    </p>
-  </div>
-
-  <div class="feature">
-    <div class="icon">📊</div>
-    <h3>متابعة الاشتراكات</h3>
-    <p>
-      متابعة حالة الدفع والاشتراكات من خلال لوحة الإدارة.
-    </p>
-  </div>
-
+<h3 style="margin:30px 0 15px;color:#00e1ff;">الترم الثاني</h3>
+<ul style="line-height:2.2;color:#ccc;padding-right:20px;">
+<li>حساب مساحي</li>
+<li>نظم المعلومات الجغرافية</li>
+<li>رسم متقدم بالحاسب الآلي</li>
+<li>كاتوجراف</li>
+<li>تقارير فنية</li>
+<li>مشروع تخرج</li>
+<li>إنجليزي</li>
+<li>تصويرية رقمية</li>
+</ul>
 </div>
 
-<h2 class="section-title">مميزات المنصة التعليمية</h2>
+</section>
+
 <h2 class="section-title">مميزات المنصة</h2>
 
-<div class="features-grid">
-  <div class="feature" style="background:linear-gradient(135deg,#00e1ff22,#0066ff22);border:1px solid #00e1ff44;">
-    <div class="icon">🚀</div>
-    <h3>منصة بسرعة خارقة</h3>
-    <p>أداء سريع جدًا وتجربة استخدام احترافية تشبه أكبر المنصات التعليمية.</p>
-  </div>
-  <div class="feature">
-    <div class="icon">⚡</div>
-    <h3>رفع المحاضرات</h3>
-    <p>رفع فيديوهات وشرح بجودة عالية وسرعة ممتازة.</p>
-  </div>
-
-  <div class="feature">
-    <div class="icon">📚</div>
-    <h3>ملفات وخرائط</h3>
-    <p>إضافة ملفات PDF وخرائط وملخصات بسهولة.</p>
-  </div>
-
-  <div class="feature">
-    <div class="icon">🎓</div>
-    <h3>اختبارات أونلاين</h3>
-    <p>إنشاء اختبارات وتصحيح تلقائي للطلاب.</p>
-  </div>
+<section class="features-grid">
+<div class="feature">
+<div class="icon">🔐</div>
+<h3>حسابات آمنة</h3>
+<p>حماية قوية للحسابات وتشفير البيانات.</p>
 </div>
 
-  </section>  <section class="courses">
-    <h2 class="section-title">الخطة الدراسية الكاملة</h2><div class="courses-grid" style="grid-template-columns:repeat(auto-fit,minmax(500px,1fr));gap:40px;">
-
-  <!-- السنة الأولى -->
-  <div class="course" style="border:1px solid #00e1ff33;box-shadow:0 0 40px #00e1ff11;">
-    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop">
-
-    <div class="course-content">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:15px;">
-        <h3 style="font-size:42px;">السنة الأولى</h3>
-        <span style="background:#00e1ff22;color:#8edfff;padding:10px 18px;border-radius:999px;font-weight:800;">
-          First Year
-        </span>
-      </div>
-
-      <p style="font-size:18px;line-height:2;color:#ccc;">
-        المواد الأساسية لطلاب الفرقة الأولى بمعهد المساحة.
-      </p>
-
-      <details open style="margin-top:30px;background:#ffffff08;padding:25px;border-radius:25px;border:1px solid #ffffff10;">
-        <summary style="cursor:pointer;font-size:28px;font-weight:900;color:#00e1ff;">
-          الترم الأول
-        </summary>
-
-        <div style="margin-top:25px;display:grid;gap:18px;">
-          <div class="feature"><h3>مساحة مستوية</h3><p>أساسيات القياسات المساحية.</p></div>
-          <div class="feature"><h3>تطبيقات المساحة المستوية</h3><p>تطبيقات عملية وتمارين.</p></div>
-          <div class="feature"><h3>سلامة مهنية</h3><p>إجراءات الأمن والسلامة.</p></div>
-          <div class="feature"><h3>رسم هندسي</h3><p>الرسم الفني والهندسي.</p></div>
-          <div class="feature"><h3>أجهزة مساحية</h3><p>التعامل مع الأجهزة الحديثة.</p></div>
-          <div class="feature"><h3>رياضيات</h3><p>أساسيات الرياضيات الهندسية.</p></div>
-          <div class="feature"><h3>تكنولوجيا ومعلومات</h3><p>مقدمة في التكنولوجيا الرقمية.</p></div>
-          <div class="feature"><h3>إنجليزي</h3><p>مصطلحات تقنية باللغة الإنجليزية.</p></div>
-        </div>
-      </details>
-
-      <details style="margin-top:25px;background:#ffffff08;padding:25px;border-radius:25px;border:1px solid #ffffff10;">
-        <summary style="cursor:pointer;font-size:28px;font-weight:900;color:#00e1ff;">
-          الترم الثاني
-        </summary>
-
-        <div style="margin-top:25px;display:grid;gap:18px;">
-          <div class="feature"><h3>مساحة جيوديسية</h3><p>القياسات الأرضية الدقيقة.</p></div>
-          <div class="feature"><h3>تطبيقات المساحة الجيوديسية</h3><p>حلول عملية وميدانية.</p></div>
-          <div class="feature"><h3>كميات ومواصفات</h3><p>حساب الكميات والمواصفات الفنية.</p></div>
-          <div class="feature"><h3>تكنولوجيا ومعلومات متقدمة</h3><p>تقنيات متقدمة للحاسب.</p></div>
-          <div class="feature"><h3>تربة ومحاصيل</h3><p>أساسيات التربة والزراعة.</p></div>
-          <div class="feature"><h3>قوانين وتشريعات</h3><p>القوانين الخاصة بالمجال.</p></div>
-          <div class="feature"><h3>رسم تخصصي</h3><p>رسم خرائط ومخططات متقدمة.</p></div>
-          <div class="feature"><h3>نظرية أخطاء</h3><p>تحليل الأخطاء في القياسات.</p></div>
-        </div>
-      </details>
-    </div>
-  </div>
-
-  <!-- السنة الثانية -->
-  <div class="course" style="border:1px solid #0066ff44;box-shadow:0 0 40px #0066ff22;">
-    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop">
-
-    <div class="course-content">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:15px;">
-        <h3 style="font-size:42px;">السنة الثانية</h3>
-        <span style="background:#0066ff22;color:#7ab8ff;padding:10px 18px;border-radius:999px;font-weight:800;">
-          Second Year
-        </span>
-      </div>
-
-      <p style="font-size:18px;line-height:2;color:#ccc;">
-        المواد المتقدمة لطلاب الفرقة الثانية بمعهد المساحة.
-      </p>
-
-      <details open style="margin-top:30px;background:#ffffff08;padding:25px;border-radius:25px;border:1px solid #ffffff10;">
-        <summary style="cursor:pointer;font-size:28px;font-weight:900;color:#00e1ff;">
-          الترم الأول
-        </summary>
-
-        <div style="margin-top:25px;display:grid;gap:18px;">
-          <div class="feature"><h3>مساحة أنفاق</h3><p>قياسات ومسارات الأنفاق.</p></div>
-          <div class="feature"><h3>مساحة تصويرية</h3><p>تقنيات التصوير المساحي.</p></div>
-          <div class="feature"><h3>تطبيقات مساحة تصويرية</h3><p>مشروعات تطبيقية متقدمة.</p></div>
-          <div class="feature"><h3>مساحة طبوغرافية</h3><p>تحليل التضاريس والخرائط.</p></div>
-          <div class="feature"><h3>تطبيقات مساحة طبوغرافية</h3><p>تمارين عملية وميدانية.</p></div>
-          <div class="feature"><h3>جيولوجيا</h3><p>أساسيات علوم الأرض.</p></div>
-          <div class="feature"><h3>رسم بالحاسب الآلي (أوتوكاد)</h3><p>احتراف الرسم الهندسي.</p></div>
-          <div class="feature"><h3>إسقاط خرائط</h3><p>إعداد وإسقاط الخرائط.</p></div>
-        </div>
-      </details>
-
-      <details style="margin-top:25px;background:#ffffff08;padding:25px;border-radius:25px;border:1px solid #ffffff10;">
-        <summary style="cursor:pointer;font-size:28px;font-weight:900;color:#00e1ff;">
-          الترم الثاني
-        </summary>
-
-        <div style="margin-top:25px;display:grid;gap:18px;">
-          <div class="feature"><h3>حساب مساحي</h3><p>حسابات هندسية متقدمة.</p></div>
-          <div class="feature"><h3>نظم المعلومات الجغرافية</h3><p>GIS وتحليل البيانات.</p></div>
-          <div class="feature"><h3>رسم متقدم بالحاسب الآلي</h3><p>تصميمات احترافية متقدمة.</p></div>
-          <div class="feature"><h3>كاتوجراف</h3><p>إعداد الخرائط الكارتوجرافية.</p></div>
-          <div class="feature"><h3>تقارير فنية</h3><p>كتابة التقارير والمشروعات.</p></div>
-          <div class="feature"><h3>مشروع تخرج</h3><p>تنفيذ مشروع عملي متكامل.</p></div>
-          <div class="feature"><h3>إنجليزي</h3><p>لغة تقنية متخصصة.</p></div>
-          <div class="feature"><h3>تصويرية رقمية</h3><p>التصوير الرقمي وتحليل الصور.</p></div>
-        </div>
-      </details>
-    </div>
-  </div>
-
+<div class="feature">
+<div class="icon">⚡</div>
+<h3>سرعة خارقة</h3>
+<p>أداء سريع جدًا حتى مع آلاف الطلاب.</p>
 </div>
 
-  </section>  <section style="padding:120px 7%;text-align:center;">
-    <div style="background:linear-gradient(135deg,#00e1ff,#0066ff);padding:80px;border-radius:40px;color:black;box-shadow:0 0 80px #00e1ff55;">
-      <h2 style="font-size:60px;font-weight:900;margin-bottom:20px;">ابدأ رحلتك الآن</h2>
-      <p style="font-size:22px;max-width:900px;margin:auto;line-height:2;">
-        انضم لأقوى منصة تعليمية خاصة بطلاب المساحة وابدأ التعلم مع أفضل شرح احترافي.
-      </p>
-      <button class="btn" style="margin-top:35px;background:black;color:white;">
-        إنشاء حساب الآن
-      </button>
-    </div>
-  </section>  <footer>
-    <h2>Asyut Survey Academy</h2>
-    <br>
-    <p>جميع الحقوق محفوظة © 2026</p>
-  </footer></body>
+<div class="feature">
+<div class="icon">🎓</div>
+<h3>اختبارات ذكية</h3>
+<p>اختبارات وتصحيح تلقائي للطلاب.</p>
+</div>
+
+<div class="feature">
+<div class="icon">📚</div>
+<h3>ملفات PDF</h3>
+<p>رفع ملفات وملخصات بسهولة.</p>
+</div>
+</section>
+
+<h2 class="section-title">لوحة تحكم الطالب</h2>
+
+<section class="dashboard">
+<div class="dash-card">
+<h3>الكورسات الخاصة بك</h3>
+<p>5 كورسات</p>
+</div>
+
+<div class="dash-card">
+<h3>نسبة التقدم</h3>
+<p>78%</p>
+</div>
+
+<div class="dash-card">
+<h3>الاختبارات</h3>
+<p>12 اختبار</p>
+</div>
+</section>
+
+<section class="auth-section">
+<div class="auth-box">
+<h2>تسجيل الدخول</h2>
+
+<input type="text" placeholder="الإيميل أو رقم الموبايل">
+<input type="password" placeholder="كلمة المرور">
+
+<button class="btn" style="width:100%;">دخول</button>
+</div>
+</section>
+
+<footer>
+<h2>Dr Ahmed Academy</h2>
+<p>منصة تعليمية احترافية لطلاب معهد مساحة أسيوط</p>
+
+<div class="socials">
+<a href="#">Facebook</a>
+<a href="#">Telegram</a>
+<a href="#">WhatsApp</a>
+</div>
+</footer>
+
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<!-- ================= AUTH SYSTEM ================= -->
+
+<section class="auth-section">
+
+<div class="auth-container">
+
+<div class="tabs">
+<button class="tab active" onclick="showLogin()">تسجيل دخول</button>
+<button class="tab" onclick="showRegister()">إنشاء حساب</button>
+</div>
+
+<div class="form-box" id="loginBox">
+<h2>تسجيل الدخول</h2>
+<input type="text" placeholder="الإيميل أو رقم الهاتف">
+<input type="password" placeholder="كلمة المرور">
+<button class="btn" style="width:100%;margin-top:20px;">دخول</button>
+<p class="reset-btn" onclick="showReset()">نسيت كلمة المرور؟</p>
+</div>
+
+<div class="form-box hidden" id="registerBox">
+<h2>إنشاء حساب</h2>
+<input type="text" placeholder="الاسم الكامل">
+<input type="email" placeholder="البريد الإلكتروني">
+<input type="text" placeholder="رقم الهاتف">
+<input type="password" placeholder="كلمة المرور">
+<button class="btn" style="width:100%;margin-top:20px;">إنشاء الحساب</button>
+</div>
+
+<div class="form-box hidden" id="resetBox">
+<h2>استرجاع كلمة المرور</h2>
+<input type="text" placeholder="الإيميل أو رقم الهاتف">
+<button class="btn" style="width:100%;margin-top:20px;">إرسال OTP</button>
+<input type="text" placeholder="كود OTP">
+<input type="password" placeholder="كلمة المرور الجديدة">
+<button class="btn" style="width:100%;margin-top:20px;">تغيير كلمة المرور</button>
+</div>
+
+</div>
+</section>
+
+<!-- ================= STUDENT DASHBOARD ================= -->
+
+<h2 class="section-title">لوحة الطالب</h2>
+
+<section class="dashboard">
+
+<div class="dash-card">
+<h3>📚 الكورسات</h3>
+<p>5 كورسات مشتركة</p>
+</div>
+
+<div class="dash-card">
+<h3>📈 نسبة التقدم</h3>
+<p>78%</p>
+</div>
+
+<div class="dash-card">
+<h3>📝 الامتحانات</h3>
+<p>12 اختبار</p>
+</div>
+
+<div class="dash-card">
+<h3>🏆 الشهادات</h3>
+<p>3 شهادات مكتملة</p>
+</div>
+
+</section>
+
+<!-- ================= DOCTOR DASHBOARD ================= -->
+
+<h2 class="section-title">لوحة الدكتور</h2>
+
+<section class="dashboard">
+
+<div class="dash-card">
+<h3>🎥 رفع المحاضرات</h3>
+<p>إدارة الفيديوهات والكورسات</p>
+</div>
+
+<div class="dash-card">
+<h3>👨‍🎓 متابعة الطلبة</h3>
+<p>متابعة الحضور والتقدم</p>
+</div>
+
+<div class="dash-card">
+<h3>💰 الأرباح</h3>
+<p>25,000 جنيه هذا الشهر</p>
+</div>
+
+<div class="dash-card">
+<h3>📊 الإحصائيات</h3>
+<p>تحليل كامل للمنصة</p>
+</div>
+
+</section>
+
+<script>
+function toggleMenu(){
+ document.getElementById('mobileMenu').classList.toggle('active')
+}
+
+function toggleTheme(){
+ document.body.classList.toggle('light-mode')
+}
+
+window.addEventListener('load',()=>{
+ setTimeout(()=>{
+  document.getElementById('loader').style.display='none'
+ },1200)
+})
+
+function showLogin(){
+ document.getElementById('loginBox').classList.remove('hidden')
+ document.getElementById('registerBox').classList.add('hidden')
+ document.getElementById('resetBox').classList.add('hidden')
+}
+
+function showRegister(){
+ document.getElementById('registerBox').classList.remove('hidden')
+ document.getElementById('loginBox').classList.add('hidden')
+ document.getElementById('resetBox').classList.add('hidden')
+}
+
+function showReset(){
+ document.getElementById('resetBox').classList.remove('hidden')
+ document.getElementById('loginBox').classList.add('hidden')
+ document.getElementById('registerBox').classList.add('hidden')
+}
+
+ScrollReveal().reveal('.feature',{
+ distance:'60px',
+ duration:1200,
+ interval:150,
+ origin:'bottom'
+})
+
+ScrollReveal().reveal('.dash-card',{
+ distance:'60px',
+ duration:1200,
+ interval:150,
+ origin:'bottom'
+})
+
+ScrollReveal().reveal('.stat-box',{
+ distance:'60px',
+ duration:1200,
+ interval:150,
+ origin:'bottom'
+})
+
+window.addEventListener('contextmenu',(e)=>{
+ e.preventDefault()
+})
+</script>
+
+</body>
 </html>
